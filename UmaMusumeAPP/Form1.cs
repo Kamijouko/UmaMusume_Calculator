@@ -61,7 +61,7 @@ namespace UmaMusumeAPP
         private void Form1_Load(object sender, EventArgs e)
         {
             this.ModesLoad();
-            this.setPictureBackGround();
+            //this.setPictureBackGround();
         }
 
         //protected override CreateParams CreateParams

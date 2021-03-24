@@ -68,13 +68,13 @@
             this.TextBox2 = new umaCalculatorConctolLibs.textBoxLibs();
             this.TextBox1 = new umaCalculatorConctolLibs.textBoxLibs();
             this.comboBox_Modes = new umaCalculatorConctolLibs.comboBoxLibs();
+            this.CalculateButton2 = new umaCalculatorConctolLibs.buttonLibs();
             this.BackGroundCalculateWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ImageList1 = new System.Windows.Forms.ImageList(this.components);
             this.BackgroundCalculateWorker2 = new System.ComponentModel.BackgroundWorker();
             this.BackGroundPanel = new umaCalculatorConctolLibs.panelLibs();
             this.CancelButton1 = new umaCalculatorConctolLibs.buttonLibs();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.CalculateButton2 = new umaCalculatorConctolLibs.buttonLibs();
             this.CalculateButton1 = new umaCalculatorConctolLibs.buttonLibs();
             this.ModeHScrollBar = new System.Windows.Forms.HScrollBar();
             this.ModeVScrollBar = new System.Windows.Forms.VScrollBar();
@@ -764,6 +764,23 @@
             this.ToolTip1.SetToolTip(this.comboBox_Modes, "模式选择");
             this.comboBox_Modes.SelectedIndexChanged += new System.EventHandler(this.comboBox_Modes_SelectedIndexChanged);
             // 
+            // CalculateButton2
+            // 
+            this.CalculateButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CalculateButton2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.CalculateButton2.FlatAppearance.BorderSize = 0;
+            this.CalculateButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CalculateButton2.Font = new System.Drawing.Font("微软雅黑", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalculateButton2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.CalculateButton2.Location = new System.Drawing.Point(8, 614);
+            this.CalculateButton2.Name = "CalculateButton2";
+            this.CalculateButton2.Size = new System.Drawing.Size(207, 53);
+            this.CalculateButton2.TabIndex = 21;
+            this.CalculateButton2.Text = "补位计算";
+            this.ToolTip1.SetToolTip(this.CalculateButton2, "将根据所选属性优先度自动填补空位。");
+            this.CalculateButton2.UseVisualStyleBackColor = false;
+            this.CalculateButton2.Click += new System.EventHandler(this.CalculateButton2_Click);
+            // 
             // BackGroundCalculateWorker1
             // 
             this.BackGroundCalculateWorker1.WorkerReportsProgress = true;
@@ -866,23 +883,6 @@
             this.progressBar1.Size = new System.Drawing.Size(886, 23);
             this.progressBar1.TabIndex = 37;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
-            // 
-            // CalculateButton2
-            // 
-            this.CalculateButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CalculateButton2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.CalculateButton2.FlatAppearance.BorderSize = 0;
-            this.CalculateButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CalculateButton2.Font = new System.Drawing.Font("微软雅黑", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CalculateButton2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.CalculateButton2.Location = new System.Drawing.Point(8, 614);
-            this.CalculateButton2.Name = "CalculateButton2";
-            this.CalculateButton2.Size = new System.Drawing.Size(207, 53);
-            this.CalculateButton2.TabIndex = 21;
-            this.CalculateButton2.Text = "补位计算";
-            this.ToolTip1.SetToolTip(this.CalculateButton2, "将根据所选属性优先度自动填补空位。");
-            this.CalculateButton2.UseVisualStyleBackColor = false;
-            this.CalculateButton2.Click += new System.EventHandler(this.CalculateButton2_Click);
             // 
             // CalculateButton1
             // 

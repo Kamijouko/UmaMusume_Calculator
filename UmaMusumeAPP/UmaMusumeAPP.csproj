@@ -208,18 +208,18 @@
     <None Include="Resources\胜利奖券.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bg7.png" />
+    <None Include="Resources\bg6.png" />
+    <None Include="Resources\bg5.png" />
+    <None Include="Resources\bg4.png" />
+    <None Include="Resources\bg3.png" />
+    <None Include="Resources\bg2.png" />
+    <None Include="Resources\bg1.png" />
     <None Include="Resources\atiaf-lvav9-003.ico" />
     <None Include="Resources\a369a-lxpgo-002.ico" />
     <None Include="a369a-lxpgo-002.ico" />
     <Content Include="bin\Debug\UmaCalculatorConctolLibs.dll" />
     <EmbeddedResource Include="UmaCalculatorConctolLibs.dll" />
-    <None Include="Resources\bg_0001_09110.png" />
-    <None Include="Resources\bg_0001_06130.png" />
-    <None Include="Resources\bg_0001_01110.png" />
-    <None Include="Resources\bg_0001_00210.png" />
-    <None Include="Resources\bg_0001_00140.png" />
-    <None Include="Resources\bg_0001_00130.png" />
-    <None Include="Resources\bg_0001_00120.png" />
     <None Include="atiaf-lvav9-003.ico" />
     <Content Include="bin\Debug\atiaf-lvav9-003.ico" />
   </ItemGroup>
