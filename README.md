@@ -1,5 +1,9 @@
 # UmaMusume_Calculator 马娘相性计算器
 
+Currently only Chinese version. \(_w_)/
+
+
+
 赛马娘相性计算器，目前仅有中文
 
 当然也不保证准确性。写着玩的2333
