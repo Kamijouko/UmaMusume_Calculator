@@ -2,6 +2,12 @@
 
 Currently only Chinese version. \(_w_)/
 
+相性数据来源：
+
+NGA(https://bbs.nga.cn/read.php?tid=25778929)；
+
+Twitter；
+
 
 
 赛马娘相性计算器，目前仅有中文
