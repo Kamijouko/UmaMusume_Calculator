@@ -78,7 +78,7 @@ namespace UmaMusumeAPP
         {
             this.comboBox_Modes.Items.Add("1世代");
             this.comboBox_Modes.Items.Add("2世代");
-            //this.comboBox_Modes.Items.Add("3世代");
+            //this.comboBox_Modes.Items.Add("3世代"); 
             //this.comboBox_Modes.Items.Add("4世代");
             this.comboBox_Modes.SelectedIndex = 0;
 
