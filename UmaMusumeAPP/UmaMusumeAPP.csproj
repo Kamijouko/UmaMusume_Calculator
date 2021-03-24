@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5769FC9-EB2E-4E90-88E8-E194A2AE2937}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UmaMusumeAPP</RootNamespace>
+    <AssemblyName>UmaCalculator</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\a369a-lxpgo-002.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="AppLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\AppLibrary\AppLibrary\bin\Debug\AppLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UmaCalculatorConctolLibs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\UmaCalculatorConctolLibs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelRe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\DataSources\AppLibrary.MainLoad.datasource" />
+    <None Include="Properties\DataSources\AppLibrary.SubData.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\AppLibrary.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AppLibrary.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\黄金船.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\丸善斯基.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\好歌剧.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\重炮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\春麗.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\小栗帽.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\象征鲁道夫%28皇帝%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\神鹰.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\草上飞.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\待兼福来.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\大和赤骥.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\大树快车.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\超级小海湾.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\帝王光环.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\特别周.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\波浦美旁.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\琵琶晨光.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\伏特加.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\米浴.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\目白麦昆.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\目白赖恩.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\无声铃鹿.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\气槽.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\东海帝王.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\优秀素质.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\樱花暴进王.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\爱丽速子.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\胜利奖券.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atiaf-lvav9-003.ico" />
+    <None Include="Resources\a369a-lxpgo-002.ico" />
+    <None Include="a369a-lxpgo-002.ico" />
+    <Content Include="bin\Debug\UmaCalculatorConctolLibs.dll" />
+    <EmbeddedResource Include="UmaCalculatorConctolLibs.dll" />
+    <None Include="Resources\bg_0001_09110.png" />
+    <None Include="Resources\bg_0001_06130.png" />
+    <None Include="Resources\bg_0001_01110.png" />
+    <None Include="Resources\bg_0001_00210.png" />
+    <None Include="Resources\bg_0001_00140.png" />
+    <None Include="Resources\bg_0001_00130.png" />
+    <None Include="Resources\bg_0001_00120.png" />
+    <None Include="atiaf-lvav9-003.ico" />
+    <Content Include="bin\Debug\atiaf-lvav9-003.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
