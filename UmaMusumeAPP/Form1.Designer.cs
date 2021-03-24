@@ -70,7 +70,6 @@
             this.comboBox_Modes = new umaCalculatorConctolLibs.comboBoxLibs();
             this.BackGroundCalculateWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ImageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.MainLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BackgroundCalculateWorker2 = new System.ComponentModel.BackgroundWorker();
             this.BackGroundPanel = new umaCalculatorConctolLibs.panelLibs();
             this.CancelButton1 = new umaCalculatorConctolLibs.buttonLibs();
@@ -193,11 +192,11 @@
             this.Mode3PictureBox1 = new umaCalculatorConctolLibs.pictureBoxLibs();
             this.ModeScreen4 = new umaCalculatorConctolLibs.panelLibs();
             this.BackgroundCalculateWorker3 = new System.ComponentModel.BackgroundWorker();
+            this.MainLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GroupBox4.SuspendLayout();
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             this.GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MainLoadBindingSource)).BeginInit();
             this.BackGroundPanel.SuspendLayout();
             this.ModeScreen1.SuspendLayout();
             this.Mode1Panel.SuspendLayout();
@@ -230,6 +229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Mode3PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mode3PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mode3PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainLoadBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -805,10 +805,6 @@
             this.ImageList1.Images.SetKeyName(26, "爱丽速子.png");
             this.ImageList1.Images.SetKeyName(27, "胜利奖券.png");
             // 
-            // MainLoadBindingSource
-            // 
-            this.MainLoadBindingSource.DataSource = typeof(AppLibrary.MainLoad);
-            // 
             // BackgroundCalculateWorker2
             // 
             this.BackgroundCalculateWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundCalculatrWorker2_DoWork);
@@ -884,6 +880,7 @@
             this.CalculateButton2.Size = new System.Drawing.Size(207, 53);
             this.CalculateButton2.TabIndex = 21;
             this.CalculateButton2.Text = "补位计算";
+            this.ToolTip1.SetToolTip(this.CalculateButton2, "将根据所选属性优先度自动填补空位。");
             this.CalculateButton2.UseVisualStyleBackColor = false;
             this.CalculateButton2.Click += new System.EventHandler(this.CalculateButton2_Click);
             // 
@@ -2486,6 +2483,10 @@
             this.BackgroundCalculateWorker3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundCalculateWorker3_DoWork);
             this.BackgroundCalculateWorker3.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundCalculateWorker3_RunWorkerCompleted);
             // 
+            // MainLoadBindingSource
+            // 
+            this.MainLoadBindingSource.DataSource = typeof(AppLibrary.MainLoad);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -2511,7 +2512,6 @@
             this.GroupBox2.PerformLayout();
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MainLoadBindingSource)).EndInit();
             this.BackGroundPanel.ResumeLayout(false);
             this.ModeScreen1.ResumeLayout(false);
             this.Mode1Panel.ResumeLayout(false);
@@ -2546,6 +2546,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Mode3PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mode3PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mode3PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainLoadBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

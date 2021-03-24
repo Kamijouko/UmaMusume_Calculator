@@ -2360,7 +2360,8 @@ namespace UmaMusumeAPP
                                             int cv = sdC.value.id;
                                             int fv = sdF.value.id;
                                             int gv = sdG.value.id;
-                                            if (av != cv && av != fv && av != gv && bv != cv && cv != fv && cv != gv && fv != gv)
+                                            List<int> cfg = new List<int> { cv, fv, gv };
+                                            if ((av != cv && av != fv && av != gv && bv != cv && cv != fv && cv != gv && fv != gv) && (!cfg.Contains(bv) && !cfg.Contains(dv) && !cfg.Contains(ev)))
                                             {
                                                 Position2 pos = new Position2();
                                                 pos.A = av;
