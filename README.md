@@ -1,4 +1,4 @@
-# UmaCalculatorAPP
+# UmaMusume_Calculator 马娘相性计算器
 赛马娘相性计算器，目前仅有中文
 当然也不保证准确性。写着玩的2333
 全局权重暂时还没加，先晾着。
