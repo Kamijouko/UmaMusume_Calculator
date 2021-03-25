@@ -193,6 +193,8 @@
             this.ModeScreen4 = new umaCalculatorConctolLibs.panelLibs();
             this.BackgroundCalculateWorker3 = new System.ComponentModel.BackgroundWorker();
             this.MainLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.label13 = new umaCalculatorConctolLibs.labelLibs();
             this.GroupBox4.SuspendLayout();
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
@@ -452,6 +454,8 @@
             // 
             this.GroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.GroupBox2.Controls.Add(this.radioButton7);
+            this.GroupBox2.Controls.Add(this.label13);
             this.GroupBox2.Controls.Add(this.radioButton6);
             this.GroupBox2.Controls.Add(this.radioButton5);
             this.GroupBox2.Controls.Add(this.radioButton4);
@@ -479,7 +483,7 @@
             this.radioButton6.AutoSize = true;
             this.radioButton6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton6.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton6.Location = new System.Drawing.Point(13, 155);
+            this.radioButton6.Location = new System.Drawing.Point(10, 159);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(94, 24);
             this.radioButton6.TabIndex = 40;
@@ -491,7 +495,7 @@
             this.radioButton5.AutoSize = true;
             this.radioButton5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton5.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton5.Location = new System.Drawing.Point(13, 121);
+            this.radioButton5.Location = new System.Drawing.Point(10, 107);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(97, 24);
             this.radioButton5.TabIndex = 39;
@@ -503,7 +507,7 @@
             this.radioButton4.AutoSize = true;
             this.radioButton4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton4.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton4.Location = new System.Drawing.Point(13, 96);
+            this.radioButton4.Location = new System.Drawing.Point(10, 82);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(99, 24);
             this.radioButton4.TabIndex = 38;
@@ -515,7 +519,7 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton3.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton3.Location = new System.Drawing.Point(13, 71);
+            this.radioButton3.Location = new System.Drawing.Point(10, 57);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(88, 24);
             this.radioButton3.TabIndex = 37;
@@ -528,7 +532,7 @@
             this.radioButton2.Checked = true;
             this.radioButton2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton2.Location = new System.Drawing.Point(13, 46);
+            this.radioButton2.Location = new System.Drawing.Point(10, 32);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(94, 24);
             this.radioButton2.TabIndex = 36;
@@ -541,7 +545,7 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton1.Location = new System.Drawing.Point(13, 21);
+            this.radioButton1.Location = new System.Drawing.Point(10, 7);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(94, 24);
             this.radioButton1.TabIndex = 35;
@@ -556,7 +560,7 @@
             this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label12.Location = new System.Drawing.Point(124, 157);
+            this.label12.Location = new System.Drawing.Point(121, 161);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(18, 20);
             this.label12.TabIndex = 34;
@@ -570,7 +574,7 @@
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label10.Location = new System.Drawing.Point(124, 123);
+            this.label10.Location = new System.Drawing.Point(121, 109);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(18, 20);
             this.label10.TabIndex = 32;
@@ -583,7 +587,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label8.Location = new System.Drawing.Point(124, 98);
+            this.label8.Location = new System.Drawing.Point(121, 84);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(18, 20);
             this.label8.TabIndex = 30;
@@ -596,7 +600,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label3.Location = new System.Drawing.Point(124, 73);
+            this.label3.Location = new System.Drawing.Point(121, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 20);
             this.label3.TabIndex = 25;
@@ -609,7 +613,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(124, 48);
+            this.label2.Location = new System.Drawing.Point(121, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 20);
             this.label2.TabIndex = 24;
@@ -623,7 +627,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(124, 23);
+            this.label1.Location = new System.Drawing.Point(121, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 20);
             this.label1.TabIndex = 23;
@@ -2487,6 +2491,31 @@
             // 
             this.MainLoadBindingSource.DataSource = typeof(AppLibrary.MainLoad);
             // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton7.ForeColor = System.Drawing.Color.Honeydew;
+            this.radioButton7.Location = new System.Drawing.Point(10, 132);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(103, 24);
+            this.radioButton7.TabIndex = 42;
+            this.radioButton7.Text = "2世代父母:";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.AliceBlue;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label13.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label13.Location = new System.Drawing.Point(121, 134);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(18, 20);
+            this.label13.TabIndex = 41;
+            this.label13.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -2716,6 +2745,8 @@
         private umaCalculatorConctolLibs.panelLibs BackGroundPanel;
         private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker2;
         private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker3;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private umaCalculatorConctolLibs.labelLibs label13;
     }
 }
 

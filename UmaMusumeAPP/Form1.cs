@@ -61,7 +61,6 @@ namespace UmaMusumeAPP
         private void Form1_Load(object sender, EventArgs e)
         {
             this.ModesLoad();
-            //this.setPictureBackGround();
         }
 
         //protected override CreateParams CreateParams
@@ -1258,6 +1257,7 @@ namespace UmaMusumeAPP
             this.label2.Text = ((float)((valueAB + valueAC)) / 2).ToString();
             this.label3.Text = ((float)(valueAB + valueAC)).ToString();
             this.label12.Text = ((float)(valueAB + valueAC)).ToString();
+            this.label13.Text = ((float)(valueBC)).ToString();
         }
 
         //Mode2
@@ -1529,6 +1529,7 @@ namespace UmaMusumeAPP
             this.label8.Text = ((float)(valueBD + valueBE)).ToString();
             this.label10.Text = ((float)(valueCF + valueCG)).ToString();
             this.label12.Text = ((float)(valueAB + valueAC + valueAD + valueAE + valueAF + valueAG)).ToString();
+            this.label13.Text = ((float)(valueBC)).ToString();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -1834,6 +1835,23 @@ namespace UmaMusumeAPP
                         ag = data.Find(delegate (SubData sd) { return sd.value.id == A; }).value.valueList[G - A];
                     }
                     return (ab + ac + ad + ae + af + ag);
+                }
+                return 0;
+            }
+            public int getBC(List<SubData> data)
+            {
+                if (B != 0 && C != 0)
+                {
+                    int bc;
+                    if (C > B)
+                    {
+                        bc = data.Find(delegate (SubData sd) { return sd.value.id == B; }).value.valueList[C - B];
+                    }
+                    else
+                    {
+                        bc = data.Find(delegate (SubData sd) { return sd.value.id == C; }).value.valueList[B - C];
+                    }
+                    return bc;
                 }
                 return 0;
             }
@@ -2361,7 +2379,7 @@ namespace UmaMusumeAPP
                                             int fv = sdF.value.id;
                                             int gv = sdG.value.id;
                                             List<int> cfg = new List<int> { cv, fv, gv };
-                                            if ((av != cv && av != fv && av != gv && bv != cv && cv != fv && cv != gv && fv != gv) && (!cfg.Contains(bv) && !cfg.Contains(dv) && !cfg.Contains(ev)))
+                                            if ((av != cv && av != fv && av != gv && bv != cv && cv != fv && cv != gv && fv != gv) && !(cfg.Contains(bv) && cfg.Contains(dv) && cfg.Contains(ev)))
                                             {
                                                 Position2 pos = new Position2();
                                                 pos.A = av;
@@ -2405,29 +2423,47 @@ namespace UmaMusumeAPP
                     }
                 }
             }
+            bgWorker.ReportProgress(process);
             data.record = record;
-            bgWorker.ReportProgress(process, data);
+            e.Result = data;
         }
 
         private void BackGroundCalculateWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            this.progressBar1.Value = e.ProgressPercentage;
+            this.progressBar1.Value = e.ProgressPercentage;     
+            
+        }
+
+        private void CancelButton1_Click(object sender, EventArgs e)
+        {
+            if (this.BackGroundCalculateWorker1.IsBusy)
+            {
+                this.BackGroundCalculateWorker1.CancelAsync();
+            }
+            
+            
+        }
+
+        private void BackGroundCalculateWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.CancelButton1.Enabled = false;
             List<ComboBox> none = new List<ComboBox>();
             List<SubData> data = new List<SubData>();
-            if (e.UserState != null)
+            if (e.Result != null)
             {
-                this.recordMode2 = ((ArgData)e.UserState).record;
-                none = ((ArgData)e.UserState).none;
-                data = ((ArgData)e.UserState).data;
+                this.recordMode2 = ((ArgData)e.Result).record;
+                none = ((ArgData)e.Result).none;
+                data = ((ArgData)e.Result).data;
             }
 
-            if (this.recordMode2.Count >= 1 && data.Count >=1 && none.Count >= 1)
+            if (this.recordMode2.Count >= 1 && data.Count >= 1 && none.Count >= 1)
             {
                 List<Position2> ids = new List<Position2>();
                 List<int> maxABC = new List<int>();
                 List<int> maxBDE = new List<int>();
                 List<int> maxCFG = new List<int>();
                 List<float> maxAALLA = new List<float>();
+                List<Position2> maxs = new List<Position2>();
                 foreach (KeyValuePair<Position2, Thresholds> max in this.recordMode2)
                 {
                     if (this.radioMode1.Checked)
@@ -2461,8 +2497,9 @@ namespace UmaMusumeAPP
                     maxBDE.Add(max.Value.BDE);
                     maxCFG.Add(max.Value.CFG);
                     maxAALLA.Add(max.Value.AALLA);
+                    maxs.Add(max.Key);
                 }
-                if (ids.Count < 1 || this.radioMode2.Checked)
+                if (this.radioMode2.Checked)
                 {
                     foreach (KeyValuePair<Position2, Thresholds> max in this.recordMode2)
                     {
@@ -2500,6 +2537,10 @@ namespace UmaMusumeAPP
                 else if (this.radioButton6.Checked)
                 {
                     ids.Sort((a, b) => b.getAALL(data) - a.getAALL(data));
+                }
+                else if (this.radioButton7.Checked)
+                {
+                    ids.Sort((a, b) => b.getBC(data) - a.getBC(data));
                 }
                 plans.Clear();
                 plansID.Clear();
@@ -2560,18 +2601,6 @@ namespace UmaMusumeAPP
 
                 FlushMemory();
             }
-            
-        }
-
-        private void CancelButton1_Click(object sender, EventArgs e)
-        {
-            this.BackGroundCalculateWorker1.CancelAsync();
-            
-        }
-
-        private void BackGroundCalculateWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            this.CancelButton1.Enabled = false;
         }
 
         private void OtherPlan_SelectedIndexChanged(object sender, EventArgs e)
