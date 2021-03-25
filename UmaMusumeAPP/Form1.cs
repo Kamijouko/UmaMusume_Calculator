@@ -2334,6 +2334,19 @@ namespace UmaMusumeAPP
 
         }
 
+
+        private class RecordDataLists
+        {
+            public List<Position2> ids = new List<Position2>();
+            public List<int> maxABC = new List<int>();
+            public List<int> maxBDE = new List<int>();
+            public List<int> maxCFG = new List<int>();
+            public List<float> maxAALLA = new List<float>();
+            public Dictionary<Position2, Thresholds> record = new Dictionary<Position2, Thresholds>();
+            public List<ComboBox> none = new List<ComboBox>();
+            public List<SubData> data = new List<SubData>();
+        }
+
         private void BackGroundCalculateWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker bgWorker = sender as BackgroundWorker;
@@ -2403,7 +2416,8 @@ namespace UmaMusumeAPP
                                             if (bgWorker.CancellationPending == true)
                                             {
                                                 e.Cancel = true;
-                                                break;
+                                                e.Result = null;
+                                                return;
                                             }
                                         }
                                     }
@@ -2416,14 +2430,14 @@ namespace UmaMusumeAPP
                                 if (bgWorker.CancellationPending == true)
                                 {
                                     e.Cancel = true;
-                                    break;
+                                    e.Result = null;
+                                    return;
                                 }
                             }
                         }
                     }
                 }
             }
-            bgWorker.ReportProgress(process);
             data.record = record;
             e.Result = data;
         }
@@ -2434,85 +2448,278 @@ namespace UmaMusumeAPP
             
         }
 
-        private void CancelButton1_Click(object sender, EventArgs e)
-        {
-            if (this.BackGroundCalculateWorker1.IsBusy)
-            {
-                this.BackGroundCalculateWorker1.CancelAsync();
-            }
-            
-            
-        }
-
         private void BackGroundCalculateWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.CancelButton1.Enabled = false;
-            List<ComboBox> none = new List<ComboBox>();
-            List<SubData> data = new List<SubData>();
-            if (e.Result != null)
+            if (!e.Cancelled)
             {
-                this.recordMode2 = ((ArgData)e.Result).record;
-                none = ((ArgData)e.Result).none;
-                data = ((ArgData)e.Result).data;
-            }
+                this.CancelButton1.Enabled = false;
+                List<ComboBox> none = new List<ComboBox>();
+                List<SubData> data = new List<SubData>();
+                Dictionary<Position2, Thresholds> record = new Dictionary<Position2, Thresholds>();
 
-            if (this.recordMode2.Count >= 1 && data.Count >= 1 && none.Count >= 1)
-            {
-                List<Position2> ids = new List<Position2>();
-                List<int> maxABC = new List<int>();
-                List<int> maxBDE = new List<int>();
-                List<int> maxCFG = new List<int>();
-                List<float> maxAALLA = new List<float>();
-                List<Position2> maxs = new List<Position2>();
-                foreach (KeyValuePair<Position2, Thresholds> max in this.recordMode2)
+                if (e.Result != null)
+                {
+                    record = ((ArgData)e.Result).record;
+                    none = ((ArgData)e.Result).none;
+                    data = ((ArgData)e.Result).data;
+                }
+
+                if (record.Count >= 1 && data.Count >= 1 && none.Count >= 1)
                 {
                     if (this.radioMode1.Checked)
                     {
-                        if (max.Value.ABC >= 50)
-                        {
-                            int sum = max.Value.ALL;
-                            if (max.Value.AALLA >= 20 && max.Value.AALLA < 25)
-                            {
-                                if (sum >= 135)
-                                {
-                                    if ((max.Value.BDE >= 40 && max.Value.CFG >= 45) || (max.Value.BDE >= 45 && max.Value.CFG >= 40))
-                                    {
-                                        ids.Add(max.Key);
-                                    }
-                                }
-                            }
-                            else if (max.Value.AALLA >= 25)
-                            {
-                                if (sum >= 130)
-                                {
-                                    if (max.Value.BDE >= 40 && max.Value.CFG >= 40)
-                                    {
-                                        ids.Add(max.Key);
-                                    }
-                                }
-                            }
-                        }
+                        RecordDataLists rdl = new RecordDataLists();
+                        rdl.record = record;
+                        rdl.none = none;
+                        rdl.data = data;
+                        this.CancelButton1.Enabled = true;
+                        this.progressBar1.Maximum = record.Count;
+                        this.BackgroundCalculateWorker4.RunWorkerAsync(rdl);
                     }
-                    maxABC.Add(max.Value.ABC);
-                    maxBDE.Add(max.Value.BDE);
-                    maxCFG.Add(max.Value.CFG);
-                    maxAALLA.Add(max.Value.AALLA);
-                    maxs.Add(max.Key);
-                }
-                if (this.radioMode2.Checked)
-                {
-                    foreach (KeyValuePair<Position2, Thresholds> max in this.recordMode2)
+                    if (this.radioMode2.Checked)
                     {
-                        float sumA = (float)maxABC.Sum() / maxABC.Count;
-                        float sumB = (float)maxBDE.Sum() / maxBDE.Count;
-                        float sumC = (float)maxCFG.Sum() / maxCFG.Count;
-                        float sumD = (float)maxAALLA.Sum() / maxAALLA.Count;
-                        if (max.Value.ABC >= sumA && max.Value.BDE >= sumB && max.Value.CFG >= sumC && max.Value.AALLA >= sumD)
+                        RecordDataLists rdl = new RecordDataLists();
+                        rdl.record = record;
+                        rdl.none = none;
+                        rdl.data = data;
+                        this.CancelButton1.Enabled = true;
+                        this.progressBar1.Maximum = record.Count * 2;
+                        this.BackgroundCalculateWorker5.RunWorkerAsync(rdl);
+                    }
+                }
+            }
+            else
+            {
+                this.progressBar1.Value = 0;
+                this.progressBar1.Maximum = 0;
+            }
+        }
+
+
+
+
+        private void BackgroundCalculateWorker4_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker bgWorker = sender as BackgroundWorker;
+            int process = 0;
+            RecordDataLists rdl = new RecordDataLists();
+            Dictionary<Position2, Thresholds> record = new Dictionary<Position2, Thresholds>();
+            if (e.Argument != null)
+            {
+                rdl = (RecordDataLists)e.Argument;
+                record = rdl.record;
+            }
+            List<Position2> ids = new List<Position2>();
+            List<int> maxABC = new List<int>();
+            List<int> maxBDE = new List<int>();
+            List<int> maxCFG = new List<int>();
+            List<int> maxALL = new List<int>();
+            List<float> maxAALLA = new List<float>();
+            List<Position2> maxs = new List<Position2>();
+            foreach (KeyValuePair<Position2, Thresholds> max in record)
+            {
+                if (max.Value.ABC >= 50)
+                {
+                    int sum = max.Value.BDE + max.Value.CFG;
+                    if (max.Value.AALLA >= 20 && max.Value.AALLA < 25)
+                    {
+                        if (sum >= 85)
                         {
-                            ids.Add(max.Key);
+                            if ((max.Value.BDE >= 40 && max.Value.CFG >= 45) || (max.Value.BDE >= 45 && max.Value.CFG >= 40))
+                            {
+                                ids.Add(max.Key);
+                            }
+                        }
+                    }
+                    else if (max.Value.AALLA >= 25)
+                    {
+                        if (sum >= 80)
+                        {
+                            if (max.Value.BDE >= 40 && max.Value.CFG >= 40)
+                            {
+                                ids.Add(max.Key);
+                            }
                         }
                     }
                 }
+                maxABC.Add(max.Value.ABC);
+                maxBDE.Add(max.Value.BDE);
+                maxCFG.Add(max.Value.CFG);
+                maxAALLA.Add(max.Value.AALLA);
+                process++;
+                bgWorker.ReportProgress(process);
+                if (bgWorker.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    e.Result = null;
+                    return;
+                }
+            }
+            
+            rdl.ids = ids;
+            rdl.maxABC = maxABC;
+            rdl.maxBDE = maxBDE;
+            rdl.maxCFG = maxCFG;
+            rdl.maxAALLA = maxAALLA;
+            e.Result = rdl;
+        }
+
+        private void BackgroundCalculateWorker4_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            this.progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void BackgroundCalculateWorker4_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!e.Cancelled)
+            {
+                RecordDataLists rdl = new RecordDataLists();
+                List<Position2> ids = new List<Position2>();
+                List<ComboBox> none = new List<ComboBox>();
+                List<SubData> data = new List<SubData>();
+                if (e.Result != null)
+                {
+                    rdl = (RecordDataLists)e.Result;
+                }
+                ids = rdl.ids;
+                none = rdl.none;
+                data = rdl.data;
+
+                if (ids.Count < 1)
+                {
+                    this.CancelButton1.Enabled = true;
+                    this.progressBar1.Maximum = rdl.record.Count;
+                    this.BackgroundCalculateWorker6.RunWorkerAsync(rdl);
+                }
+                else
+                {
+                    if (this.radioButton1.Checked)
+                    {
+                        ids.Sort((a, b) => b.getALL(data) - a.getALL(data));
+                    }
+                    else if (this.radioButton2.Checked)
+                    {
+                        ids.Sort((a, b) => (int)b.getAALLA(data) - (int)a.getAALLA(data));
+                    }
+                    else if (this.radioButton3.Checked)
+                    {
+                        ids.Sort((a, b) => b.getABC(data) - a.getABC(data));
+                    }
+                    else if (this.radioButton4.Checked)
+                    {
+                        ids.Sort((a, b) => b.getBDE(data) - a.getBDE(data));
+                    }
+                    else if (this.radioButton5.Checked)
+                    {
+                        ids.Sort((a, b) => b.getCFG(data) - a.getCFG(data));
+                    }
+                    else if (this.radioButton6.Checked)
+                    {
+                        ids.Sort((a, b) => b.getAALL(data) - a.getAALL(data));
+                    }
+                    else if (this.radioButton7.Checked)
+                    {
+                        ids.Sort((a, b) => b.getBC(data) - a.getBC(data));
+                    }
+
+                    plans.Clear();
+                    plansID.Clear();
+                    IdsData id = new IdsData();
+                    id.ids = ids;
+                    id.data = data;
+                    id.none = none;
+                    this.CancelButton1.Enabled = true;
+                    this.progressBar1.Maximum = ids.Count;
+                    this.BackgroundCalculateWorker7.RunWorkerAsync(id);
+                }
+            }
+            else
+            {
+                this.progressBar1.Value = 0;
+                this.progressBar1.Maximum = 0;
+            }
+        }
+
+
+
+
+        private void BackgroundCalculateWorker5_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+            BackgroundWorker bgWorker = sender as BackgroundWorker;
+            int process = 0;
+            RecordDataLists rdl = new RecordDataLists();
+            Dictionary<Position2, Thresholds> record = new Dictionary<Position2, Thresholds>();
+            List<Position2> ids = new List<Position2>();
+            List<int> maxABC = new List<int>();
+            List<int> maxBDE = new List<int>();
+            List<int> maxCFG = new List<int>();
+            List<float> maxAALLA = new List<float>();
+
+            if (e.Argument != null)
+            {
+                rdl = (RecordDataLists)e.Argument;
+                record = rdl.record;
+            }
+            foreach (KeyValuePair<Position2, Thresholds> max in record)
+            {
+                maxABC.Add(max.Value.ABC);
+                maxBDE.Add(max.Value.BDE);
+                maxCFG.Add(max.Value.CFG);
+                maxAALLA.Add(max.Value.AALLA);
+                process++;
+                bgWorker.ReportProgress(process);
+                if (bgWorker.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    e.Result = null;
+                    return;
+                }
+            }
+
+            foreach (KeyValuePair<Position2, Thresholds> max in record)
+            {
+                float sumA = (float)maxABC.Sum() / maxABC.Count;
+                float sumB = (float)maxBDE.Sum() / maxBDE.Count;
+                float sumC = (float)maxCFG.Sum() / maxCFG.Count;
+                float sumD = (float)maxAALLA.Sum() / maxAALLA.Count;
+                if (max.Value.ABC >= sumA && max.Value.BDE >= sumB && max.Value.CFG >= sumC && max.Value.AALLA >= sumD)
+                {
+                    ids.Add(max.Key);
+                }
+                process++;
+                bgWorker.ReportProgress(process);
+                if (bgWorker.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    e.Result = null;
+                    return;
+                }
+            }
+            rdl.ids = ids;
+            e.Result = rdl;
+        }
+
+        private void BackgroundCalculateWorker5_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            this.progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void BackgroundCalculateWorker5_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!e.Cancelled)
+            {
+                RecordDataLists rdl = new RecordDataLists();
+                List<Position2> ids = new List<Position2>();
+                List<ComboBox> none = new List<ComboBox>();
+                List<SubData> data = new List<SubData>();
+                if (e.Result != null)
+                {
+                    rdl = (RecordDataLists)e.Result;
+                }
+                ids = rdl.ids;
+                none = rdl.none;
+                data = rdl.data;
 
                 if (this.radioButton1.Checked)
                 {
@@ -2542,20 +2749,198 @@ namespace UmaMusumeAPP
                 {
                     ids.Sort((a, b) => b.getBC(data) - a.getBC(data));
                 }
+
                 plans.Clear();
                 plansID.Clear();
-                for (int i = 0; i < ids.Count; i++)
+                IdsData id = new IdsData();
+                id.ids = ids;
+                id.data = data;
+                id.none = none;
+                this.CancelButton1.Enabled = true;
+                this.progressBar1.Maximum = ids.Count;
+                this.BackgroundCalculateWorker7.RunWorkerAsync(id);
+            }
+            else
+            {
+                this.progressBar1.Value = 0;
+                this.progressBar1.Maximum = 0;
+            }
+        }
+
+
+
+
+        private void BackgroundCalculateWorker6_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker bgWorker = sender as BackgroundWorker;
+            int process = 0;
+            RecordDataLists rdl = new RecordDataLists();
+            Dictionary<Position2, Thresholds> record = new Dictionary<Position2, Thresholds>();
+            List<Position2> ids = new List<Position2>();
+            List<float> maxAALLA = new List<float>();
+
+            if (e.Argument != null)
+            {
+                rdl = (RecordDataLists)e.Argument;
+                maxAALLA = rdl.maxAALLA;
+                record = rdl.record;
+            }
+
+            foreach (KeyValuePair<Position2, Thresholds> max in record)
+            {
+                float sumA = (float)maxAALLA.Sum() / record.Count;
+                if (max.Value.AALLA >= sumA)
                 {
-                    List<string> names = new List<string>();
-                    for (int n = 0; n < ids[i].getList().Count; n++)
+                    ids.Add(max.Key);
+                }
+                process++;
+                bgWorker.ReportProgress(process);
+                if (bgWorker.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    e.Result = null;
+                    return;
+                }
+            }
+            rdl.ids = ids;
+            e.Result = rdl;
+        }
+
+        private void BackgroundCalculateWorker6_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            this.progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void BackgroundCalculateWorker6_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!e.Cancelled)
+            {
+                RecordDataLists rdl = new RecordDataLists();
+                List<Position2> ids = new List<Position2>();
+                List<ComboBox> none = new List<ComboBox>();
+                List<SubData> data = new List<SubData>();
+                if (e.Result != null)
+                {
+                    rdl = (RecordDataLists)e.Result;
+                }
+                ids = rdl.ids;
+                none = rdl.none;
+                data = rdl.data;
+
+                if (this.radioButton1.Checked)
+                {
+                    ids.Sort((a, b) => b.getALL(data) - a.getALL(data));
+                }
+                else if (this.radioButton2.Checked)
+                {
+                    ids.Sort((a, b) => (int)b.getAALLA(data) - (int)a.getAALLA(data));
+                }
+                else if (this.radioButton3.Checked)
+                {
+                    ids.Sort((a, b) => b.getABC(data) - a.getABC(data));
+                }
+                else if (this.radioButton4.Checked)
+                {
+                    ids.Sort((a, b) => b.getBDE(data) - a.getBDE(data));
+                }
+                else if (this.radioButton5.Checked)
+                {
+                    ids.Sort((a, b) => b.getCFG(data) - a.getCFG(data));
+                }
+                else if (this.radioButton6.Checked)
+                {
+                    ids.Sort((a, b) => b.getAALL(data) - a.getAALL(data));
+                }
+                else if (this.radioButton7.Checked)
+                {
+                    ids.Sort((a, b) => b.getBC(data) - a.getBC(data));
+                }
+
+                plans.Clear();
+                plansID.Clear();
+                IdsData id = new IdsData();
+                id.ids = ids;
+                id.data = data;
+                id.none = none;
+                this.CancelButton1.Enabled = true;
+                this.progressBar1.Maximum = ids.Count;
+                this.BackgroundCalculateWorker7.RunWorkerAsync(id);
+            }
+            else
+            {
+                this.progressBar1.Value = 0;
+                this.progressBar1.Maximum = 0;
+            }
+        }
+
+
+
+        private class IdsData
+        {
+            public List<Position2> ids = new List<Position2>();
+            public List<SubData> data = new List<SubData>();
+            public List<ComboBox> none = new List<ComboBox>();
+            public Dictionary<string, List<string>> plans = new Dictionary<string, List<string>>();
+            public Dictionary<string, List<int>> plansID = new Dictionary<string, List<int>>();
+        }
+
+        private void BackgroundCalculateWorker7_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker bgWorker = sender as BackgroundWorker;
+            int process = 0;
+            IdsData id = new IdsData();
+            List<Position2> ids = new List<Position2>();
+            List<SubData> data = new List<SubData>();
+            if (e.Argument != null)
+            {
+                id = (IdsData)e.Argument;
+                ids = id.ids;
+                data = id.data;
+            }
+
+            for (int i = 0; i < ids.Count; i++)
+            {
+                List<string> names = new List<string>();
+                for (int n = 0; n < ids[i].getList().Count; n++)
+                {
+                    if (ids[i].getList()[n] != 0)
                     {
-                        if (ids[i].getList()[n] != 0)
-                        {
-                            names.Add(data.Find(delegate (SubData sd) { return sd.value.id == ids[i].getList()[n]; }).Umaname + "->" + ids[i].getPosition(n));
-                        }
+                        names.Add(data.Find(delegate (SubData sd) { return sd.value.id == ids[i].getList()[n]; }).Umaname + "->" + ids[i].getPosition(n));
                     }
-                    plans.Add("Plan" + (plans.Count + 1).ToString(), names);
-                    plansID.Add("Plan" + (plansID.Count + 1).ToString(), ids[i].getList());
+                }
+                id.plans.Add("Plan" + (id.plans.Count + 1).ToString(), names);
+                id.plansID.Add("Plan" + (id.plansID.Count + 1).ToString(), ids[i].getList());
+                process++;
+                bgWorker.ReportProgress(process);
+                if (bgWorker.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    e.Result = null;
+                    return;
+                }
+            }
+            e.Result = id;
+        }
+
+        private void BackgroundCalculateWorker7_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            this.progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void BackgroundCalculateWorker7_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!e.Cancelled)
+            {
+                IdsData id = new IdsData();
+                List<Position2> ids = new List<Position2>();
+                List<ComboBox> none = new List<ComboBox>();
+                if (e.Result != null)
+                {
+                    id = (IdsData)e.Result;
+                    plans = id.plans;
+                    plansID = id.plansID;
+                    ids = id.ids;
+                    none = id.none;
                 }
 
                 if (plans.Count >= 1)
@@ -2598,8 +2983,39 @@ namespace UmaMusumeAPP
                         }
                     }
                 }
-
                 FlushMemory();
+            }
+            else
+            {
+                this.progressBar1.Value = 0;
+                this.progressBar1.Maximum = 0;
+            }
+        }
+
+
+
+
+        private void CancelButton1_Click(object sender, EventArgs e)
+        {
+            if (this.BackGroundCalculateWorker1.IsBusy)
+            {
+                this.BackGroundCalculateWorker1.CancelAsync();
+            }
+            if (this.BackgroundCalculateWorker4.IsBusy)
+            {
+                this.BackgroundCalculateWorker4.CancelAsync();
+            }
+            if (this.BackgroundCalculateWorker5.IsBusy)
+            {
+                this.BackgroundCalculateWorker5.CancelAsync();
+            }
+            if (this.BackgroundCalculateWorker6.IsBusy)
+            {
+                this.BackgroundCalculateWorker6.CancelAsync();
+            }
+            if (this.BackgroundCalculateWorker7.IsBusy)
+            {
+                this.BackgroundCalculateWorker7.CancelAsync();
             }
         }
 

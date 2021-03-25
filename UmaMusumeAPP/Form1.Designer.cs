@@ -195,6 +195,10 @@
             this.MainLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.label13 = new umaCalculatorConctolLibs.labelLibs();
+            this.BackgroundCalculateWorker4 = new System.ComponentModel.BackgroundWorker();
+            this.BackgroundCalculateWorker5 = new System.ComponentModel.BackgroundWorker();
+            this.BackgroundCalculateWorker6 = new System.ComponentModel.BackgroundWorker();
+            this.BackgroundCalculateWorker7 = new System.ComponentModel.BackgroundWorker();
             this.GroupBox4.SuspendLayout();
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
@@ -812,7 +816,7 @@
             this.ImageList1.Images.SetKeyName(12, "超级小海湾.png");
             this.ImageList1.Images.SetKeyName(13, "帝王光环.png");
             this.ImageList1.Images.SetKeyName(14, "特别周.png");
-            this.ImageList1.Images.SetKeyName(15, "波浦美旁.png");
+            this.ImageList1.Images.SetKeyName(15, "美浦波旁.png");
             this.ImageList1.Images.SetKeyName(16, "琵琶晨光.png");
             this.ImageList1.Images.SetKeyName(17, "伏特加.png");
             this.ImageList1.Images.SetKeyName(18, "米浴.png");
@@ -2516,6 +2520,38 @@
             this.label13.TabIndex = 41;
             this.label13.Text = "0";
             // 
+            // BackgroundCalculateWorker4
+            // 
+            this.BackgroundCalculateWorker4.WorkerReportsProgress = true;
+            this.BackgroundCalculateWorker4.WorkerSupportsCancellation = true;
+            this.BackgroundCalculateWorker4.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundCalculateWorker4_DoWork);
+            this.BackgroundCalculateWorker4.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundCalculateWorker4_ProgressChanged);
+            this.BackgroundCalculateWorker4.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundCalculateWorker4_RunWorkerCompleted);
+            // 
+            // BackgroundCalculateWorker5
+            // 
+            this.BackgroundCalculateWorker5.WorkerReportsProgress = true;
+            this.BackgroundCalculateWorker5.WorkerSupportsCancellation = true;
+            this.BackgroundCalculateWorker5.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundCalculateWorker5_DoWork);
+            this.BackgroundCalculateWorker5.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundCalculateWorker5_ProgressChanged);
+            this.BackgroundCalculateWorker5.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundCalculateWorker5_RunWorkerCompleted);
+            // 
+            // BackgroundCalculateWorker6
+            // 
+            this.BackgroundCalculateWorker6.WorkerReportsProgress = true;
+            this.BackgroundCalculateWorker6.WorkerSupportsCancellation = true;
+            this.BackgroundCalculateWorker6.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundCalculateWorker6_DoWork);
+            this.BackgroundCalculateWorker6.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundCalculateWorker6_ProgressChanged);
+            this.BackgroundCalculateWorker6.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundCalculateWorker6_RunWorkerCompleted);
+            // 
+            // BackgroundCalculateWorker7
+            // 
+            this.BackgroundCalculateWorker7.WorkerReportsProgress = true;
+            this.BackgroundCalculateWorker7.WorkerSupportsCancellation = true;
+            this.BackgroundCalculateWorker7.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundCalculateWorker7_DoWork);
+            this.BackgroundCalculateWorker7.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundCalculateWorker7_ProgressChanged);
+            this.BackgroundCalculateWorker7.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundCalculateWorker7_RunWorkerCompleted);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -2747,6 +2783,10 @@
         private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker3;
         private System.Windows.Forms.RadioButton radioButton7;
         private umaCalculatorConctolLibs.labelLibs label13;
+        private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker4;
+        private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker5;
+        private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker6;
+        private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker7;
     }
 }
 
