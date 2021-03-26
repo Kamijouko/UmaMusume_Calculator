@@ -6,7 +6,8 @@ Currently only Chinese version. \(_w_)/
 
 NGA(https://bbs.nga.cn/read.php?tid=25778929)；
 
-Twitter；
+Twitter(https://twitter.com/gamedukedeatho)；
+
 
 
 
