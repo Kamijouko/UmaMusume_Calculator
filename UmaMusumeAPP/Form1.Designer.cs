@@ -35,10 +35,10 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.GotoPlanButton = new umaCalculatorConctolLibs.buttonLibs();
-            this.GroupBox4 = new umaCalculatorConctolLibs.panelLibs();
+            this.GroupBox4 = new umaCalculatorConctolLibs.groupBoxLibs(this.components);
             this.radioMode2 = new System.Windows.Forms.RadioButton();
             this.radioMode1 = new System.Windows.Forms.RadioButton();
-            this.GroupBox3 = new umaCalculatorConctolLibs.panelLibs();
+            this.GroupBox3 = new umaCalculatorConctolLibs.groupBoxLibs(this.components);
             this.SetButton1 = new umaCalculatorConctolLibs.buttonLibs();
             this.LoadButton1 = new umaCalculatorConctolLibs.buttonLibs();
             this.LoadButton2 = new umaCalculatorConctolLibs.buttonLibs();
@@ -46,7 +46,9 @@
             this.SaveButton1 = new umaCalculatorConctolLibs.buttonLibs();
             this.OtherPlan = new umaCalculatorConctolLibs.comboBoxLibs();
             this.OtherPlanInfo = new umaCalculatorConctolLibs.comboBoxLibs();
-            this.GroupBox2 = new umaCalculatorConctolLibs.panelLibs();
+            this.GroupBox2 = new umaCalculatorConctolLibs.groupBoxLibs(this.components);
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.label13 = new umaCalculatorConctolLibs.labelLibs();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -60,7 +62,7 @@
             this.label2 = new umaCalculatorConctolLibs.labelLibs();
             this.label1 = new umaCalculatorConctolLibs.labelLibs();
             this.comboBox_Data = new umaCalculatorConctolLibs.comboBoxLibs();
-            this.GroupBox1 = new umaCalculatorConctolLibs.panelLibs();
+            this.GroupBox1 = new umaCalculatorConctolLibs.groupBoxLibs(this.components);
             this.CheckBox3 = new System.Windows.Forms.CheckBox();
             this.CheckBox2 = new System.Windows.Forms.CheckBox();
             this.CheckBox1 = new System.Windows.Forms.CheckBox();
@@ -69,6 +71,8 @@
             this.TextBox1 = new umaCalculatorConctolLibs.textBoxLibs();
             this.comboBox_Modes = new umaCalculatorConctolLibs.comboBoxLibs();
             this.CalculateButton2 = new umaCalculatorConctolLibs.buttonLibs();
+            this.GroupBox5 = new umaCalculatorConctolLibs.groupBoxLibs(this.components);
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.BackGroundCalculateWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ImageList1 = new System.Windows.Forms.ImageList(this.components);
             this.BackgroundCalculateWorker2 = new System.ComponentModel.BackgroundWorker();
@@ -193,8 +197,6 @@
             this.ModeScreen4 = new umaCalculatorConctolLibs.panelLibs();
             this.BackgroundCalculateWorker3 = new System.ComponentModel.BackgroundWorker();
             this.MainLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.label13 = new umaCalculatorConctolLibs.labelLibs();
             this.BackgroundCalculateWorker4 = new System.ComponentModel.BackgroundWorker();
             this.BackgroundCalculateWorker5 = new System.ComponentModel.BackgroundWorker();
             this.BackgroundCalculateWorker6 = new System.ComponentModel.BackgroundWorker();
@@ -203,6 +205,7 @@
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             this.GroupBox1.SuspendLayout();
+            this.GroupBox5.SuspendLayout();
             this.BackGroundPanel.SuspendLayout();
             this.ModeScreen1.SuspendLayout();
             this.Mode1Panel.SuspendLayout();
@@ -282,14 +285,16 @@
             // GroupBox4
             // 
             this.GroupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.GroupBox4.BoxText = "补算模式-鼠标放选项上查看说明-仅作用于2世代模式";
             this.GroupBox4.Controls.Add(this.radioMode2);
             this.GroupBox4.Controls.Add(this.radioMode1);
             this.GroupBox4.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.GroupBox4.Location = new System.Drawing.Point(233, 701);
+            this.GroupBox4.Location = new System.Drawing.Point(233, 702);
             this.GroupBox4.Name = "GroupBox4";
-            this.GroupBox4.Size = new System.Drawing.Size(403, 54);
+            this.GroupBox4.Size = new System.Drawing.Size(366, 55);
             this.GroupBox4.TabIndex = 40;
+            this.GroupBox4.TabStop = false;
             this.GroupBox4.Text = "补算模式-鼠标放选项上查看说明-仅作用于2世代模式";
             this.ToolTip1.SetToolTip(this.GroupBox4, "仅能作用于2世代模式。");
             // 
@@ -298,7 +303,7 @@
             this.radioMode2.AutoSize = true;
             this.radioMode2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioMode2.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioMode2.Location = new System.Drawing.Point(234, 17);
+            this.radioMode2.Location = new System.Drawing.Point(233, 21);
             this.radioMode2.Name = "radioMode2";
             this.radioMode2.Size = new System.Drawing.Size(75, 24);
             this.radioMode2.TabIndex = 42;
@@ -312,7 +317,7 @@
             this.radioMode1.Checked = true;
             this.radioMode1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioMode1.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioMode1.Location = new System.Drawing.Point(63, 17);
+            this.radioMode1.Location = new System.Drawing.Point(62, 21);
             this.radioMode1.Name = "radioMode1";
             this.radioMode1.Size = new System.Drawing.Size(75, 24);
             this.radioMode1.TabIndex = 41;
@@ -325,6 +330,7 @@
             // GroupBox3
             // 
             this.GroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.GroupBox3.BoxText = "操作栏-待实装";
             this.GroupBox3.Controls.Add(this.SetButton1);
             this.GroupBox3.Controls.Add(this.LoadButton1);
             this.GroupBox3.Controls.Add(this.LoadButton2);
@@ -332,10 +338,11 @@
             this.GroupBox3.Controls.Add(this.SaveButton1);
             this.GroupBox3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.GroupBox3.Location = new System.Drawing.Point(4, 272);
+            this.GroupBox3.Location = new System.Drawing.Point(10, 292);
             this.GroupBox3.Name = "GroupBox3";
-            this.GroupBox3.Size = new System.Drawing.Size(216, 170);
+            this.GroupBox3.Size = new System.Drawing.Size(209, 161);
             this.GroupBox3.TabIndex = 39;
+            this.GroupBox3.TabStop = false;
             this.GroupBox3.Text = "操作栏-待实装";
             this.ToolTip1.SetToolTip(this.GroupBox3, "控制面板-待实装");
             // 
@@ -350,9 +357,9 @@
             this.SetButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetButton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetButton1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.SetButton1.Location = new System.Drawing.Point(4, 119);
+            this.SetButton1.Location = new System.Drawing.Point(6, 117);
             this.SetButton1.Name = "SetButton1";
-            this.SetButton1.Size = new System.Drawing.Size(139, 37);
+            this.SetButton1.Size = new System.Drawing.Size(129, 37);
             this.SetButton1.TabIndex = 11;
             this.SetButton1.Text = "算法设置";
             this.SetButton1.UseVisualStyleBackColor = false;
@@ -369,9 +376,9 @@
             this.LoadButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoadButton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoadButton1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.LoadButton1.Location = new System.Drawing.Point(4, 24);
+            this.LoadButton1.Location = new System.Drawing.Point(6, 23);
             this.LoadButton1.Name = "LoadButton1";
-            this.LoadButton1.Size = new System.Drawing.Size(104, 31);
+            this.LoadButton1.Size = new System.Drawing.Size(94, 31);
             this.LoadButton1.TabIndex = 8;
             this.LoadButton1.Text = "读取xml";
             this.LoadButton1.UseVisualStyleBackColor = false;
@@ -388,7 +395,7 @@
             this.LoadButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoadButton2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoadButton2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.LoadButton2.Location = new System.Drawing.Point(109, 24);
+            this.LoadButton2.Location = new System.Drawing.Point(101, 23);
             this.LoadButton2.Name = "LoadButton2";
             this.LoadButton2.Size = new System.Drawing.Size(101, 31);
             this.LoadButton2.TabIndex = 9;
@@ -406,9 +413,9 @@
             this.LoadButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoadButton3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoadButton3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.LoadButton3.Location = new System.Drawing.Point(4, 56);
+            this.LoadButton3.Location = new System.Drawing.Point(6, 55);
             this.LoadButton3.Name = "LoadButton3";
-            this.LoadButton3.Size = new System.Drawing.Size(139, 61);
+            this.LoadButton3.Size = new System.Drawing.Size(129, 61);
             this.LoadButton3.TabIndex = 10;
             this.LoadButton3.Text = "手动输入/修正";
             this.LoadButton3.UseVisualStyleBackColor = false;
@@ -424,7 +431,7 @@
             this.SaveButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveButton1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.SaveButton1.Location = new System.Drawing.Point(144, 56);
+            this.SaveButton1.Location = new System.Drawing.Point(136, 55);
             this.SaveButton1.Name = "SaveButton1";
             this.SaveButton1.Size = new System.Drawing.Size(66, 61);
             this.SaveButton1.TabIndex = 19;
@@ -458,6 +465,7 @@
             // 
             this.GroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.GroupBox2.BoxText = "=-=-=-=-=-=-=";
             this.GroupBox2.Controls.Add(this.radioButton7);
             this.GroupBox2.Controls.Add(this.label13);
             this.GroupBox2.Controls.Add(this.radioButton6);
@@ -474,12 +482,38 @@
             this.GroupBox2.Controls.Add(this.label1);
             this.GroupBox2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox2.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.GroupBox2.Location = new System.Drawing.Point(9, 79);
+            this.GroupBox2.Location = new System.Drawing.Point(9, 83);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Size = new System.Drawing.Size(207, 190);
+            this.GroupBox2.Size = new System.Drawing.Size(207, 206);
             this.GroupBox2.TabIndex = 24;
+            this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "=-=-=-=-=-=-=";
             this.ToolTip1.SetToolTip(this.GroupBox2, "指定计算时的优先属性。\r\n主要平均指1对其他的和的平均，\r\n1世代和指1,2+1,3，同理可得，\r\n主相对指1对其他所有之和\r\n\r\n");
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton7.ForeColor = System.Drawing.Color.Honeydew;
+            this.radioButton7.Location = new System.Drawing.Point(14, 149);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(103, 24);
+            this.radioButton7.TabIndex = 42;
+            this.radioButton7.Text = "2世代父母:";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.AliceBlue;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label13.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label13.Location = new System.Drawing.Point(125, 151);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(18, 20);
+            this.label13.TabIndex = 41;
+            this.label13.Text = "0";
             // 
             // radioButton6
             // 
@@ -487,7 +521,7 @@
             this.radioButton6.AutoSize = true;
             this.radioButton6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton6.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton6.Location = new System.Drawing.Point(10, 159);
+            this.radioButton6.Location = new System.Drawing.Point(14, 175);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(94, 24);
             this.radioButton6.TabIndex = 40;
@@ -499,7 +533,7 @@
             this.radioButton5.AutoSize = true;
             this.radioButton5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton5.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton5.Location = new System.Drawing.Point(10, 107);
+            this.radioButton5.Location = new System.Drawing.Point(14, 124);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(97, 24);
             this.radioButton5.TabIndex = 39;
@@ -511,7 +545,7 @@
             this.radioButton4.AutoSize = true;
             this.radioButton4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton4.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton4.Location = new System.Drawing.Point(10, 82);
+            this.radioButton4.Location = new System.Drawing.Point(14, 99);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(99, 24);
             this.radioButton4.TabIndex = 38;
@@ -523,7 +557,7 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton3.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton3.Location = new System.Drawing.Point(10, 57);
+            this.radioButton3.Location = new System.Drawing.Point(14, 74);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(88, 24);
             this.radioButton3.TabIndex = 37;
@@ -536,7 +570,7 @@
             this.radioButton2.Checked = true;
             this.radioButton2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton2.Location = new System.Drawing.Point(10, 32);
+            this.radioButton2.Location = new System.Drawing.Point(14, 49);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(94, 24);
             this.radioButton2.TabIndex = 36;
@@ -549,7 +583,7 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton1.Location = new System.Drawing.Point(10, 7);
+            this.radioButton1.Location = new System.Drawing.Point(14, 24);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(94, 24);
             this.radioButton1.TabIndex = 35;
@@ -564,7 +598,7 @@
             this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label12.Location = new System.Drawing.Point(121, 161);
+            this.label12.Location = new System.Drawing.Point(125, 177);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(18, 20);
             this.label12.TabIndex = 34;
@@ -578,7 +612,7 @@
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label10.Location = new System.Drawing.Point(121, 109);
+            this.label10.Location = new System.Drawing.Point(125, 126);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(18, 20);
             this.label10.TabIndex = 32;
@@ -591,7 +625,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label8.Location = new System.Drawing.Point(121, 84);
+            this.label8.Location = new System.Drawing.Point(125, 101);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(18, 20);
             this.label8.TabIndex = 30;
@@ -604,7 +638,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label3.Location = new System.Drawing.Point(121, 59);
+            this.label3.Location = new System.Drawing.Point(125, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 20);
             this.label3.TabIndex = 25;
@@ -617,7 +651,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(121, 34);
+            this.label2.Location = new System.Drawing.Point(125, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 20);
             this.label2.TabIndex = 24;
@@ -631,7 +665,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(121, 9);
+            this.label1.Location = new System.Drawing.Point(125, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 20);
             this.label1.TabIndex = 23;
@@ -655,6 +689,7 @@
             // 
             this.GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GroupBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.GroupBox1.BoxText = "全局权重-待实装";
             this.GroupBox1.Controls.Add(this.CheckBox3);
             this.GroupBox1.Controls.Add(this.CheckBox2);
             this.GroupBox1.Controls.Add(this.CheckBox1);
@@ -662,10 +697,11 @@
             this.GroupBox1.Controls.Add(this.TextBox2);
             this.GroupBox1.Controls.Add(this.TextBox1);
             this.GroupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.GroupBox1.Location = new System.Drawing.Point(10, 445);
+            this.GroupBox1.Location = new System.Drawing.Point(12, 459);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(203, 129);
+            this.GroupBox1.Size = new System.Drawing.Size(203, 115);
             this.GroupBox1.TabIndex = 18;
+            this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "全局权重-待实装";
             this.ToolTip1.SetToolTip(this.GroupBox1, "全局权重-待实装");
             // 
@@ -679,7 +715,7 @@
             this.CheckBox3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.CheckBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckBox3.Font = new System.Drawing.Font("微软雅黑", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckBox3.Location = new System.Drawing.Point(97, 86);
+            this.CheckBox3.Location = new System.Drawing.Point(97, 81);
             this.CheckBox3.Name = "CheckBox3";
             this.CheckBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CheckBox3.Size = new System.Drawing.Size(87, 23);
@@ -697,7 +733,7 @@
             this.CheckBox2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.CheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckBox2.Font = new System.Drawing.Font("微软雅黑", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckBox2.Location = new System.Drawing.Point(97, 58);
+            this.CheckBox2.Location = new System.Drawing.Point(97, 53);
             this.CheckBox2.Name = "CheckBox2";
             this.CheckBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CheckBox2.Size = new System.Drawing.Size(87, 23);
@@ -715,7 +751,7 @@
             this.CheckBox1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckBox1.Font = new System.Drawing.Font("微软雅黑", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckBox1.Location = new System.Drawing.Point(97, 30);
+            this.CheckBox1.Location = new System.Drawing.Point(97, 25);
             this.CheckBox1.Name = "CheckBox1";
             this.CheckBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CheckBox1.Size = new System.Drawing.Size(87, 23);
@@ -728,7 +764,7 @@
             this.TextBox3.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.TextBox3.Font = new System.Drawing.Font("Brush Script MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBox3.ForeColor = System.Drawing.Color.Brown;
-            this.TextBox3.Location = new System.Drawing.Point(9, 81);
+            this.TextBox3.Location = new System.Drawing.Point(9, 76);
             this.TextBox3.Name = "TextBox3";
             this.TextBox3.Size = new System.Drawing.Size(83, 32);
             this.TextBox3.TabIndex = 20;
@@ -739,7 +775,7 @@
             this.TextBox2.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.TextBox2.Font = new System.Drawing.Font("Brush Script MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBox2.ForeColor = System.Drawing.Color.Brown;
-            this.TextBox2.Location = new System.Drawing.Point(9, 53);
+            this.TextBox2.Location = new System.Drawing.Point(9, 48);
             this.TextBox2.Name = "TextBox2";
             this.TextBox2.Size = new System.Drawing.Size(83, 32);
             this.TextBox2.TabIndex = 19;
@@ -750,7 +786,7 @@
             this.TextBox1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.TextBox1.Font = new System.Drawing.Font("Brush Script MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBox1.ForeColor = System.Drawing.Color.Brown;
-            this.TextBox1.Location = new System.Drawing.Point(9, 25);
+            this.TextBox1.Location = new System.Drawing.Point(9, 20);
             this.TextBox1.Name = "TextBox1";
             this.TextBox1.Size = new System.Drawing.Size(83, 32);
             this.TextBox1.TabIndex = 18;
@@ -780,14 +816,50 @@
             this.CalculateButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CalculateButton2.Font = new System.Drawing.Font("微软雅黑", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CalculateButton2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.CalculateButton2.Location = new System.Drawing.Point(8, 614);
+            this.CalculateButton2.Location = new System.Drawing.Point(8, 617);
             this.CalculateButton2.Name = "CalculateButton2";
-            this.CalculateButton2.Size = new System.Drawing.Size(207, 53);
+            this.CalculateButton2.Size = new System.Drawing.Size(207, 50);
             this.CalculateButton2.TabIndex = 21;
             this.CalculateButton2.Text = "补位计算";
             this.ToolTip1.SetToolTip(this.CalculateButton2, "将根据所选属性优先度自动填补空位。");
             this.CalculateButton2.UseVisualStyleBackColor = false;
             this.CalculateButton2.Click += new System.EventHandler(this.CalculateButton2_Click);
+            // 
+            // GroupBox5
+            // 
+            this.GroupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.GroupBox5.BoxText = "模式相关";
+            this.GroupBox5.Controls.Add(this.checkBox4);
+            this.GroupBox5.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupBox5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.GroupBox5.Location = new System.Drawing.Point(618, 702);
+            this.GroupBox5.Name = "GroupBox5";
+            this.GroupBox5.Size = new System.Drawing.Size(210, 55);
+            this.GroupBox5.TabIndex = 43;
+            this.GroupBox5.TabStop = false;
+            this.GroupBox5.Text = "模式相关";
+            this.ToolTip1.SetToolTip(this.GroupBox5, "仅能作用于2世代模式。");
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.checkBox4.FlatAppearance.BorderSize = 0;
+            this.checkBox4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.checkBox4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.checkBox4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.checkBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox4.Font = new System.Drawing.Font("微软雅黑", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox4.Location = new System.Drawing.Point(26, 21);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox4.Size = new System.Drawing.Size(135, 23);
+            this.checkBox4.TabIndex = 22;
+            this.checkBox4.Text = "去除重复的Plan";
+            this.ToolTip1.SetToolTip(this.checkBox4, "本选项可作用于左侧的一二两种模式\r\n主要用途是去除补算后，左侧Plans里出现的，大量\r\n只有位置变动但总体相同的搭配。\r\n注意：在补算4个空位及以上时会出现大量" +
+        "计算因而\r\n导致读条缓慢，建议在补算三个空位及以下时勾选。");
+            this.checkBox4.UseVisualStyleBackColor = false;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // BackGroundCalculateWorker1
             // 
@@ -841,6 +913,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BackGroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackGroundPanel.Controls.Add(this.GroupBox5);
             this.BackGroundPanel.Controls.Add(this.GotoPlanButton);
             this.BackGroundPanel.Controls.Add(this.GroupBox4);
             this.BackGroundPanel.Controls.Add(this.GroupBox3);
@@ -900,7 +973,7 @@
             this.CalculateButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CalculateButton1.Font = new System.Drawing.Font("微软雅黑", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CalculateButton1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.CalculateButton1.Location = new System.Drawing.Point(8, 577);
+            this.CalculateButton1.Location = new System.Drawing.Point(8, 581);
             this.CalculateButton1.Name = "CalculateButton1";
             this.CalculateButton1.Size = new System.Drawing.Size(207, 34);
             this.CalculateButton1.TabIndex = 20;
@@ -2495,31 +2568,6 @@
             // 
             this.MainLoadBindingSource.DataSource = typeof(AppLibrary.MainLoad);
             // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton7.ForeColor = System.Drawing.Color.Honeydew;
-            this.radioButton7.Location = new System.Drawing.Point(10, 132);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(103, 24);
-            this.radioButton7.TabIndex = 42;
-            this.radioButton7.Text = "2世代父母:";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.AliceBlue;
-            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label13.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label13.Location = new System.Drawing.Point(121, 134);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(18, 20);
-            this.label13.TabIndex = 41;
-            this.label13.Text = "0";
-            // 
             // BackgroundCalculateWorker4
             // 
             this.BackgroundCalculateWorker4.WorkerReportsProgress = true;
@@ -2577,6 +2625,8 @@
             this.GroupBox2.PerformLayout();
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
+            this.GroupBox5.ResumeLayout(false);
+            this.GroupBox5.PerformLayout();
             this.BackGroundPanel.ResumeLayout(false);
             this.ModeScreen1.ResumeLayout(false);
             this.Mode1Panel.ResumeLayout(false);
@@ -2682,7 +2732,7 @@
         private umaCalculatorConctolLibs.buttonLibs LoadButton2;
         private umaCalculatorConctolLibs.buttonLibs LoadButton3;
         private umaCalculatorConctolLibs.buttonLibs SetButton1;
-        private umaCalculatorConctolLibs.panelLibs GroupBox1;
+        private umaCalculatorConctolLibs.groupBoxLibs GroupBox1;
         private System.Windows.Forms.CheckBox CheckBox3;
         private System.Windows.Forms.CheckBox CheckBox2;
         private System.Windows.Forms.CheckBox CheckBox1;
@@ -2702,7 +2752,7 @@
         private umaCalculatorConctolLibs.labelLibs Mode1Value3a;
         private umaCalculatorConctolLibs.labelLibs Mode1Value2a;
         private umaCalculatorConctolLibs.labelLibs label1;
-        private umaCalculatorConctolLibs.panelLibs GroupBox2;
+        private umaCalculatorConctolLibs.groupBoxLibs GroupBox2;
         private umaCalculatorConctolLibs.labelLibs label3;
         private umaCalculatorConctolLibs.labelLibs label2;
         private umaCalculatorConctolLibs.labelLibs Mode1Box1Value1;
@@ -2772,8 +2822,8 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private umaCalculatorConctolLibs.panelLibs GroupBox3;
-        private umaCalculatorConctolLibs.panelLibs GroupBox4;
+        private umaCalculatorConctolLibs.groupBoxLibs GroupBox3;
+        private umaCalculatorConctolLibs.groupBoxLibs GroupBox4;
         private System.Windows.Forms.RadioButton radioMode2;
         private System.Windows.Forms.RadioButton radioMode1;
         private umaCalculatorConctolLibs.buttonLibs GotoPlanButton;
@@ -2787,6 +2837,8 @@
         private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker5;
         private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker6;
         private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker7;
+        private umaCalculatorConctolLibs.groupBoxLibs GroupBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
     }
 }
 

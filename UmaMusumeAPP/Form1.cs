@@ -1855,6 +1855,46 @@ namespace UmaMusumeAPP
                 }
                 return 0;
             }
+
+            public bool CheckEqual(Position2 pos)
+            {
+                List<int> DE = new List<int> { D, E};
+                List<int> FG = new List<int> { F, G};
+                if (pos.A == A)
+                {
+                    if (pos.B == B && pos.C == C)
+                    {
+                        if ((DE.Contains(pos.D) && DE.Contains(pos.E)) && (FG.Contains(pos.F) && FG.Contains(pos.G)))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else if (pos.B == C && pos.C == B)
+                    {
+                        if ((DE.Contains(pos.F) && DE.Contains(pos.G)) && (FG.Contains(pos.D) && FG.Contains(pos.E)))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                        
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         private class Thresholds
@@ -2271,7 +2311,8 @@ namespace UmaMusumeAPP
                 this.recordMode2.Clear();
                 this.progressBar1.Maximum = dataA.Count * dataB.Count * dataC.Count * dataD.Count * dataE.Count * dataF.Count * dataG.Count;
                 this.BackGroundCalculateWorker1.RunWorkerAsync(dataArg);
-                
+                this.CalculateButton2.Enabled = false;
+
             }
             if (this.comboBox_Modes.SelectedIndex == 2)
             {
@@ -2483,7 +2524,7 @@ namespace UmaMusumeAPP
                         rdl.none = none;
                         rdl.data = data;
                         this.CancelButton1.Enabled = true;
-                        this.progressBar1.Maximum = record.Count * 2;
+                        this.progressBar1.Maximum = record.Count;
                         this.BackgroundCalculateWorker5.RunWorkerAsync(rdl);
                     }
                 }
@@ -2492,6 +2533,8 @@ namespace UmaMusumeAPP
             {
                 this.progressBar1.Value = 0;
                 this.progressBar1.Maximum = 0;
+                this.CalculateButton2.Enabled = true;
+                this.CancelButton1.Enabled = false;
             }
         }
 
@@ -2527,7 +2570,17 @@ namespace UmaMusumeAPP
                         {
                             if ((max.Value.BDE >= 40 && max.Value.CFG >= 45) || (max.Value.BDE >= 45 && max.Value.CFG >= 40))
                             {
-                                ids.Add(max.Key);
+                                if (checkBox4.Checked)
+                                {
+                                    if (!ids.Exists(delegate (Position2 pos) { return pos.CheckEqual(max.Key); }))
+                                    {
+                                        ids.Add(max.Key);
+                                    }
+                                }
+                                else
+                                {
+                                    ids.Add(max.Key);
+                                }
                             }
                         }
                     }
@@ -2537,7 +2590,17 @@ namespace UmaMusumeAPP
                         {
                             if (max.Value.BDE >= 40 && max.Value.CFG >= 40)
                             {
-                                ids.Add(max.Key);
+                                if (this.checkBox4.Checked)
+                                {
+                                    if (!ids.Exists(delegate (Position2 pos) { return pos.CheckEqual(max.Key); }))
+                                    {
+                                        ids.Add(max.Key);
+                                    }
+                                }
+                                else
+                                {
+                                    ids.Add(max.Key);
+                                }
                             }
                         }
                     }
@@ -2637,6 +2700,8 @@ namespace UmaMusumeAPP
             {
                 this.progressBar1.Value = 0;
                 this.progressBar1.Maximum = 0;
+                this.CalculateButton2.Enabled = true;
+                this.CancelButton1.Enabled = false;
             }
         }
 
@@ -2685,7 +2750,17 @@ namespace UmaMusumeAPP
                 float sumD = (float)maxAALLA.Sum() / maxAALLA.Count;
                 if (max.Value.ABC >= sumA && max.Value.BDE >= sumB && max.Value.CFG >= sumC && max.Value.AALLA >= sumD)
                 {
-                    ids.Add(max.Key);
+                    if (this.checkBox4.Checked)
+                    {
+                        if (!ids.Exists(delegate (Position2 pos) { return pos.CheckEqual(max.Key); }))
+                        {
+                            ids.Add(max.Key);
+                        }
+                    }
+                    else
+                    {
+                        ids.Add(max.Key);
+                    }
                 }
                 process++;
                 bgWorker.ReportProgress(process);
@@ -2764,6 +2839,8 @@ namespace UmaMusumeAPP
             {
                 this.progressBar1.Value = 0;
                 this.progressBar1.Maximum = 0;
+                this.CalculateButton2.Enabled = true;
+                this.CancelButton1.Enabled = false;
             }
         }
 
@@ -2791,7 +2868,17 @@ namespace UmaMusumeAPP
                 float sumA = (float)maxAALLA.Sum() / record.Count;
                 if (max.Value.AALLA >= sumA)
                 {
-                    ids.Add(max.Key);
+                    if (checkBox4.Checked)
+                    {
+                        if (!ids.Exists(delegate (Position2 pos) { return pos.CheckEqual(max.Key); }))
+                        {
+                            ids.Add(max.Key);
+                        }
+                    }
+                    else
+                    {
+                        ids.Add(max.Key);
+                    }
                 }
                 process++;
                 bgWorker.ReportProgress(process);
@@ -2870,6 +2957,8 @@ namespace UmaMusumeAPP
             {
                 this.progressBar1.Value = 0;
                 this.progressBar1.Maximum = 0;
+                this.CalculateButton2.Enabled = true;
+                this.CancelButton1.Enabled = false;
             }
         }
 
@@ -2890,6 +2979,8 @@ namespace UmaMusumeAPP
             int process = 0;
             IdsData id = new IdsData();
             List<Position2> ids = new List<Position2>();
+            //List<Position2> ids2 = new List<Position2>();
+            //List<Position2> ids3 = new List<Position2>();
             List<SubData> data = new List<SubData>();
             if (e.Argument != null)
             {
@@ -2897,6 +2988,42 @@ namespace UmaMusumeAPP
                 ids = id.ids;
                 data = id.data;
             }
+
+            //foreach (Position2 pos in ids)
+            //{
+            //    if (ids2.Count < 1)
+            //    {
+            //        ids2.Add(pos);
+            //        ids3 = ids2;
+            //    }
+            //    else
+            //    {
+            //        for (int i = 0; i < ids2.Count; i++)
+            //        {
+            //            if (!ids2[i].CheckEqual(pos))
+            //            {
+            //                ids3.Append(pos);
+            //            }
+            //            if (bgWorker.CancellationPending == true)
+            //            {
+            //                e.Cancel = true;
+            //                e.Result = null;
+            //                return;
+            //            }
+            //        }
+            //        ids2 = ids3;
+            //    }
+            //    process++;
+            //    bgWorker.ReportProgress(process);
+            //    if (bgWorker.CancellationPending == true)
+            //    {
+            //        e.Cancel = true;
+            //        e.Result = null;
+            //        return;
+            //    }
+            //}
+
+            //ids = ids2;
 
             for (int i = 0; i < ids.Count; i++)
             {
@@ -2984,11 +3111,15 @@ namespace UmaMusumeAPP
                     }
                 }
                 FlushMemory();
+                this.CalculateButton2.Enabled = true;
+                this.CancelButton1.Enabled = false;
             }
             else
             {
                 this.progressBar1.Value = 0;
                 this.progressBar1.Maximum = 0;
+                this.CalculateButton2.Enabled = true;
+                this.CancelButton1.Enabled = false;
             }
         }
 
@@ -3084,6 +3215,7 @@ namespace UmaMusumeAPP
             this.GroupBox2.BackColor = System.Drawing.Color.FromArgb(80, 0, 0, 150);
             this.GroupBox3.BackColor = System.Drawing.Color.FromArgb(70, 0, 0, 150);
             this.GroupBox4.BackColor = System.Drawing.Color.FromArgb(70, 0, 0, 220);
+            this.GroupBox5.BackColor = System.Drawing.Color.FromArgb(70, 0, 0, 220);
             this.Mode1Panel.BackColor = System.Drawing.Color.Transparent;
             this.Mode2Panel.BackColor = System.Drawing.Color.Transparent;
 
@@ -3121,6 +3253,9 @@ namespace UmaMusumeAPP
         [DllImport("kernel32.dll")]
         private static extern bool SetProcessWorkingSetSize(IntPtr process, int minSize, int maxSize);
 
-        
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
