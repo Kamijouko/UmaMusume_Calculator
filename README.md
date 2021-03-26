@@ -72,4 +72,4 @@ Twitter(https://twitter.com/gamedukedeatho)；
 
 其他该注意的都写在程序里了
 
-winform真的图片是处理真的拉
+winform的图片是处理真的拉
