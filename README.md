@@ -6,7 +6,8 @@ Currently only Chinese version. \(_w_)/
 
 NGA(https://bbs.nga.cn/read.php?tid=25778929)；
 
-Twitter；
+Twitter(https://twitter.com/gamedukedeatho)；
+
 
 
 
@@ -71,4 +72,4 @@ Twitter；
 
 其他该注意的都写在程序里了
 
-winform真的图片是处理真的拉
+winform的图片是处理真的拉
