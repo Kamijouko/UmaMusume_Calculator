@@ -2524,7 +2524,7 @@ namespace UmaMusumeAPP
                         rdl.none = none;
                         rdl.data = data;
                         this.CancelButton1.Enabled = true;
-                        this.progressBar1.Maximum = record.Count;
+                        this.progressBar1.Maximum = record.Count * 2;
                         this.BackgroundCalculateWorker5.RunWorkerAsync(rdl);
                     }
                 }
