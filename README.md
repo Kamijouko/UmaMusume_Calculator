@@ -4,9 +4,9 @@ Currently only Chinese version. \(_w_)/
 
 相性数据来源：
 
-NGA(https://bbs.nga.cn/read.php?tid=25778929)；
+NGA(  https://bbs.nga.cn/read.php?tid=25778929  )；
 
-Twitter(https://twitter.com/gamedukedeatho)；
+Twitter(  https://twitter.com/gamedukedeatho  )；
 
 
 
