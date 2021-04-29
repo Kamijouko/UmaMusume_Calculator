@@ -29,6 +29,12 @@ namespace UmaMusumeAPP
         ValueData mode2Vd6;
         ValueData mode2Vd7;
 
+        public int TABC = 50;
+        public int TAALLAmax = 25;
+        public int TAALLAmin = 20;
+        public int TBCmax = 45;
+        public int TBCmin = 40;
+
         //ValueData mode3Vd1;
         //ValueData mode3Vd2;
         //ValueData mode3Vd3;
@@ -1997,6 +2003,13 @@ namespace UmaMusumeAPP
                     return;
                 }
             }
+            if (!CheckForm2BeAble() && this.radioMode1.Checked)
+            {
+                if (MessageBox.Show("检测到当前为模式一并且阈值中存在不形成区间的最小值与最大值，请进行调整后再补算", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+                {
+                    return;
+                }
+            }
             if (none.Count < 1)
             {
                 return;
@@ -2386,6 +2399,11 @@ namespace UmaMusumeAPP
             public Dictionary<Position2, Thresholds> record = new Dictionary<Position2, Thresholds>();
             public List<ComboBox> none = new List<ComboBox>();
             public List<SubData> data = new List<SubData>();
+            public int TnumABC = 50;
+            public int TnumAALLAmin = 20;
+            public int TnumAALLAmax = 25;
+            public int TnumBorCmin = 40;
+            public int TnumBorCmax = 45;
         }
 
         private void BackGroundCalculateWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -2513,6 +2531,11 @@ namespace UmaMusumeAPP
                         rdl.record = record;
                         rdl.none = none;
                         rdl.data = data;
+                        rdl.TnumABC = this.TABC;
+                        rdl.TnumAALLAmax = this.TAALLAmax;
+                        rdl.TnumAALLAmin = this.TAALLAmin;
+                        rdl.TnumBorCmax = this.TBCmax;
+                        rdl.TnumBorCmin = this.TBCmin;
                         this.CancelButton1.Enabled = true;
                         this.progressBar1.Maximum = record.Count;
                         this.BackgroundCalculateWorker4.RunWorkerAsync(rdl);
@@ -2561,14 +2584,14 @@ namespace UmaMusumeAPP
             List<Position2> maxs = new List<Position2>();
             foreach (KeyValuePair<Position2, Thresholds> max in record)
             {
-                if (max.Value.ABC >= 50)
+                if (max.Value.ABC >= rdl.TnumABC)
                 {
                     int sum = max.Value.BDE + max.Value.CFG;
-                    if (max.Value.AALLA >= 20 && max.Value.AALLA < 25)
+                    if (max.Value.AALLA >= rdl.TnumAALLAmin && max.Value.AALLA < rdl.TnumAALLAmax)
                     {
-                        if (sum >= 85)
+                        if (sum >= (rdl.TnumBorCmax + rdl.TnumBorCmin))
                         {
-                            if ((max.Value.BDE >= 40 && max.Value.CFG >= 45) || (max.Value.BDE >= 45 && max.Value.CFG >= 40))
+                            if ((max.Value.BDE >= rdl.TnumBorCmin && max.Value.CFG >= rdl.TnumBorCmax) || (max.Value.BDE >= rdl.TnumBorCmax && max.Value.CFG >= rdl.TnumBorCmin))
                             {
                                 if (checkBox4.Checked)
                                 {
@@ -2584,11 +2607,11 @@ namespace UmaMusumeAPP
                             }
                         }
                     }
-                    else if (max.Value.AALLA >= 25)
+                    else if (max.Value.AALLA >= rdl.TnumAALLAmax)
                     {
-                        if (sum >= 80)
+                        if (sum >= (rdl.TnumBorCmin * 2))
                         {
-                            if (max.Value.BDE >= 40 && max.Value.CFG >= 40)
+                            if (max.Value.BDE >= rdl.TnumBorCmin && max.Value.CFG >= rdl.TnumBorCmin)
                             {
                                 if (this.checkBox4.Checked)
                                 {
@@ -3153,15 +3176,11 @@ namespace UmaMusumeAPP
         private void OtherPlan_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.OtherPlanInfo.DataSource = plans[(string)this.OtherPlan.SelectedValue];
-            
-        }
 
-        private void GotoPlanButton_Click(object sender, EventArgs e)
-        {
             if (this.comboBox_Modes.SelectedIndex == 1)
             {
                 List<int> list = plansID[(string)this.OtherPlan.SelectedValue];
-                
+
                 this.Mode2ComboBox1.SelectedIndex = list[0] - 1;
                 this.Mode2ComboBox2.SelectedIndex = list[1] - 1;
                 this.Mode2ComboBox3.SelectedIndex = list[2] - 1;
@@ -3169,6 +3188,28 @@ namespace UmaMusumeAPP
                 this.Mode2ComboBox5.SelectedIndex = list[4] - 1;
                 this.Mode2ComboBox6.SelectedIndex = list[5] - 1;
                 this.Mode2ComboBox7.SelectedIndex = list[6] - 1;
+            }
+
+        }
+
+        private void NextPlanButton_Click(object sender, EventArgs e)
+        {
+            if (this.comboBox_Modes.SelectedIndex == 1)
+            {
+                if (this.OtherPlan.SelectedIndex < (this.OtherPlan.Items.Count - 1))
+                {
+                    this.OtherPlan.SelectedIndex++;
+
+                    List<int> list = plansID[(string)this.OtherPlan.SelectedValue];
+
+                    this.Mode2ComboBox1.SelectedIndex = list[0] - 1;
+                    this.Mode2ComboBox2.SelectedIndex = list[1] - 1;
+                    this.Mode2ComboBox3.SelectedIndex = list[2] - 1;
+                    this.Mode2ComboBox4.SelectedIndex = list[3] - 1;
+                    this.Mode2ComboBox5.SelectedIndex = list[4] - 1;
+                    this.Mode2ComboBox6.SelectedIndex = list[5] - 1;
+                    this.Mode2ComboBox7.SelectedIndex = list[6] - 1;
+                }
             }
         }
 
@@ -3256,6 +3297,57 @@ namespace UmaMusumeAPP
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void LastPlanButton_Click(object sender, EventArgs e)
+        {
+            if (this.comboBox_Modes.SelectedIndex == 1)
+            {
+                if (this.OtherPlan.SelectedIndex > 0)
+                {
+                    this.OtherPlan.SelectedIndex--;
+
+                    List<int> list = plansID[(string)this.OtherPlan.SelectedValue];
+
+                    this.Mode2ComboBox1.SelectedIndex = list[0] - 1;
+                    this.Mode2ComboBox2.SelectedIndex = list[1] - 1;
+                    this.Mode2ComboBox3.SelectedIndex = list[2] - 1;
+                    this.Mode2ComboBox4.SelectedIndex = list[3] - 1;
+                    this.Mode2ComboBox5.SelectedIndex = list[4] - 1;
+                    this.Mode2ComboBox6.SelectedIndex = list[5] - 1;
+                    this.Mode2ComboBox7.SelectedIndex = list[6] - 1;
+                }
+            }
+        }
+
+        
+
+        public void Form2SetUp(Form2 form2)
+        {
+            form2.parent = this;
+
+            form2.textBox1.Text = this.TABC.ToString();
+            form2.textBox2.Text = this.TAALLAmax.ToString();
+            form2.textBox3.Text = this.TAALLAmin.ToString();
+            form2.textBox4.Text = this.TBCmax.ToString();
+            form2.textBox5.Text = this.TBCmin.ToString();
+        }
+
+        public bool CheckForm2BeAble()
+        {
+            if (this.TAALLAmax > this.TAALLAmin && this.TBCmax > this.TBCmin)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void buttonLibsT_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            Form2SetUp(form2);
+
+            form2.Show();
         }
     }
 }

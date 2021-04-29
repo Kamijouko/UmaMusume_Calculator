@@ -34,7 +34,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.GotoPlanButton = new umaCalculatorConctolLibs.buttonLibs();
+            this.NextPlanButton = new umaCalculatorConctolLibs.buttonLibs();
             this.GroupBox4 = new umaCalculatorConctolLibs.groupBoxLibs(this.components);
             this.radioMode2 = new System.Windows.Forms.RadioButton();
             this.radioMode1 = new System.Windows.Forms.RadioButton();
@@ -73,6 +73,8 @@
             this.CalculateButton2 = new umaCalculatorConctolLibs.buttonLibs();
             this.GroupBox5 = new umaCalculatorConctolLibs.groupBoxLibs(this.components);
             this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.LastPlanButton = new umaCalculatorConctolLibs.buttonLibs();
+            this.buttonLibs1 = new umaCalculatorConctolLibs.buttonLibs();
             this.BackGroundCalculateWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ImageList1 = new System.Windows.Forms.ImageList(this.components);
             this.BackgroundCalculateWorker2 = new System.ComponentModel.BackgroundWorker();
@@ -196,11 +198,11 @@
             this.Mode3PictureBox1 = new umaCalculatorConctolLibs.pictureBoxLibs();
             this.ModeScreen4 = new umaCalculatorConctolLibs.panelLibs();
             this.BackgroundCalculateWorker3 = new System.ComponentModel.BackgroundWorker();
-            this.MainLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BackgroundCalculateWorker4 = new System.ComponentModel.BackgroundWorker();
             this.BackgroundCalculateWorker5 = new System.ComponentModel.BackgroundWorker();
             this.BackgroundCalculateWorker6 = new System.ComponentModel.BackgroundWorker();
             this.BackgroundCalculateWorker7 = new System.ComponentModel.BackgroundWorker();
+            this.MainLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GroupBox4.SuspendLayout();
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
@@ -260,27 +262,27 @@
             this.ToolTip1.ShowAlways = true;
             this.ToolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
-            // GotoPlanButton
+            // NextPlanButton
             // 
-            this.GotoPlanButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.GotoPlanButton.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.GotoPlanButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.GotoPlanButton.FlatAppearance.BorderSize = 0;
-            this.GotoPlanButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
-            this.GotoPlanButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GotoPlanButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.GotoPlanButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GotoPlanButton.Font = new System.Drawing.Font("微软雅黑", 6.6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GotoPlanButton.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.GotoPlanButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GotoPlanButton.Location = new System.Drawing.Point(166, 672);
-            this.GotoPlanButton.Name = "GotoPlanButton";
-            this.GotoPlanButton.Size = new System.Drawing.Size(35, 25);
-            this.GotoPlanButton.TabIndex = 20;
-            this.GotoPlanButton.Text = "->";
-            this.ToolTip1.SetToolTip(this.GotoPlanButton, "转至Plan");
-            this.GotoPlanButton.UseVisualStyleBackColor = false;
-            this.GotoPlanButton.Click += new System.EventHandler(this.GotoPlanButton_Click);
+            this.NextPlanButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.NextPlanButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.NextPlanButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.NextPlanButton.FlatAppearance.BorderSize = 0;
+            this.NextPlanButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
+            this.NextPlanButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.NextPlanButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.NextPlanButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextPlanButton.Font = new System.Drawing.Font("微软雅黑", 6.6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NextPlanButton.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.NextPlanButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.NextPlanButton.Location = new System.Drawing.Point(165, 672);
+            this.NextPlanButton.Name = "NextPlanButton";
+            this.NextPlanButton.Size = new System.Drawing.Size(35, 25);
+            this.NextPlanButton.TabIndex = 20;
+            this.NextPlanButton.Text = "->";
+            this.ToolTip1.SetToolTip(this.NextPlanButton, "下一个Plan");
+            this.NextPlanButton.UseVisualStyleBackColor = false;
+            this.NextPlanButton.Click += new System.EventHandler(this.NextPlanButton_Click);
             // 
             // GroupBox4
             // 
@@ -443,9 +445,9 @@
             this.OtherPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.OtherPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.OtherPlan.FormattingEnabled = true;
-            this.OtherPlan.Location = new System.Drawing.Point(22, 672);
+            this.OtherPlan.Location = new System.Drawing.Point(63, 672);
             this.OtherPlan.Name = "OtherPlan";
-            this.OtherPlan.Size = new System.Drawing.Size(138, 23);
+            this.OtherPlan.Size = new System.Drawing.Size(96, 23);
             this.OtherPlan.TabIndex = 36;
             this.ToolTip1.SetToolTip(this.OtherPlan, "其他方案参考");
             this.OtherPlan.SelectedIndexChanged += new System.EventHandler(this.OtherPlan_SelectedIndexChanged);
@@ -821,7 +823,7 @@
             this.CalculateButton2.Size = new System.Drawing.Size(207, 50);
             this.CalculateButton2.TabIndex = 21;
             this.CalculateButton2.Text = "补位计算";
-            this.ToolTip1.SetToolTip(this.CalculateButton2, "将根据所选属性优先度自动填补空位。");
+            this.ToolTip1.SetToolTip(this.CalculateButton2, "将根据所选属性优先度自动填补空位。\r\n如在模式一遇到读条异常缓慢，请点下方的设置阈值按钮进行调整。");
             this.CalculateButton2.UseVisualStyleBackColor = false;
             this.CalculateButton2.Click += new System.EventHandler(this.CalculateButton2_Click);
             // 
@@ -860,6 +862,45 @@
         "计算因而\r\n导致读条缓慢，建议在补算三个空位及以下时勾选。");
             this.checkBox4.UseVisualStyleBackColor = false;
             this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // LastPlanButton
+            // 
+            this.LastPlanButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LastPlanButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.LastPlanButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.LastPlanButton.FlatAppearance.BorderSize = 0;
+            this.LastPlanButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
+            this.LastPlanButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.LastPlanButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.LastPlanButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LastPlanButton.Font = new System.Drawing.Font("微软雅黑", 6.6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastPlanButton.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.LastPlanButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LastPlanButton.Location = new System.Drawing.Point(22, 672);
+            this.LastPlanButton.Name = "LastPlanButton";
+            this.LastPlanButton.Size = new System.Drawing.Size(35, 25);
+            this.LastPlanButton.TabIndex = 44;
+            this.LastPlanButton.Text = "<-";
+            this.ToolTip1.SetToolTip(this.LastPlanButton, "上一个Plan");
+            this.LastPlanButton.UseVisualStyleBackColor = false;
+            this.LastPlanButton.Click += new System.EventHandler(this.LastPlanButton_Click);
+            // 
+            // buttonLibs1
+            // 
+            this.buttonLibs1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonLibs1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonLibs1.FlatAppearance.BorderSize = 0;
+            this.buttonLibs1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLibs1.Font = new System.Drawing.Font("微软雅黑", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLibs1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonLibs1.Location = new System.Drawing.Point(850, 710);
+            this.buttonLibs1.Name = "buttonLibs1";
+            this.buttonLibs1.Size = new System.Drawing.Size(207, 48);
+            this.buttonLibs1.TabIndex = 45;
+            this.buttonLibs1.Text = "设置阈值";
+            this.ToolTip1.SetToolTip(this.buttonLibs1, "设置 二世代-模式一 的算法阈值");
+            this.buttonLibs1.UseVisualStyleBackColor = false;
+            this.buttonLibs1.Click += new System.EventHandler(this.buttonLibsT_Click);
             // 
             // BackGroundCalculateWorker1
             // 
@@ -901,6 +942,8 @@
             this.ImageList1.Images.SetKeyName(25, "樱花暴进王.png");
             this.ImageList1.Images.SetKeyName(26, "爱丽速子.png");
             this.ImageList1.Images.SetKeyName(27, "胜利奖券.png");
+            this.ImageList1.Images.SetKeyName(28, "真机伶.png");
+            this.ImageList1.Images.SetKeyName(29, "成田大进.png");
             // 
             // BackgroundCalculateWorker2
             // 
@@ -913,8 +956,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BackGroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackGroundPanel.Controls.Add(this.buttonLibs1);
+            this.BackGroundPanel.Controls.Add(this.LastPlanButton);
             this.BackGroundPanel.Controls.Add(this.GroupBox5);
-            this.BackGroundPanel.Controls.Add(this.GotoPlanButton);
+            this.BackGroundPanel.Controls.Add(this.NextPlanButton);
             this.BackGroundPanel.Controls.Add(this.GroupBox4);
             this.BackGroundPanel.Controls.Add(this.GroupBox3);
             this.BackGroundPanel.Controls.Add(this.CancelButton1);
@@ -2564,10 +2609,6 @@
             this.BackgroundCalculateWorker3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundCalculateWorker3_DoWork);
             this.BackgroundCalculateWorker3.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundCalculateWorker3_RunWorkerCompleted);
             // 
-            // MainLoadBindingSource
-            // 
-            this.MainLoadBindingSource.DataSource = typeof(AppLibrary.MainLoad);
-            // 
             // BackgroundCalculateWorker4
             // 
             this.BackgroundCalculateWorker4.WorkerReportsProgress = true;
@@ -2599,6 +2640,10 @@
             this.BackgroundCalculateWorker7.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundCalculateWorker7_DoWork);
             this.BackgroundCalculateWorker7.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundCalculateWorker7_ProgressChanged);
             this.BackgroundCalculateWorker7.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundCalculateWorker7_RunWorkerCompleted);
+            // 
+            // MainLoadBindingSource
+            // 
+            this.MainLoadBindingSource.DataSource = typeof(AppLibrary.MainLoad);
             // 
             // Form1
             // 
@@ -2826,7 +2871,7 @@
         private umaCalculatorConctolLibs.groupBoxLibs GroupBox4;
         private System.Windows.Forms.RadioButton radioMode2;
         private System.Windows.Forms.RadioButton radioMode1;
-        private umaCalculatorConctolLibs.buttonLibs GotoPlanButton;
+        private umaCalculatorConctolLibs.buttonLibs NextPlanButton;
         private System.Windows.Forms.ImageList ImageList1;
         private umaCalculatorConctolLibs.panelLibs BackGroundPanel;
         private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker2;
@@ -2839,6 +2884,8 @@
         private System.ComponentModel.BackgroundWorker BackgroundCalculateWorker7;
         private umaCalculatorConctolLibs.groupBoxLibs GroupBox5;
         private System.Windows.Forms.CheckBox checkBox4;
+        private umaCalculatorConctolLibs.buttonLibs LastPlanButton;
+        private umaCalculatorConctolLibs.buttonLibs buttonLibs1;
     }
 }
 
