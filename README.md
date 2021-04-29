@@ -45,7 +45,7 @@ Twitter(  https://twitter.com/gamedukedeatho  )；
 
 ![阈值](https://user-images.githubusercontent.com/59531368/116519603-a2257e80-a90c-11eb-93c5-b3e39e1c838e.png)
 
-模式一与阈值相关算法的逻辑：（= =）
+模式一与阈值相关算法的大致逻辑：（= =）【仅供参考】
 
     判断当前组合的一世代之和是否大于阈值；
     
