@@ -287,7 +287,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "二世代模式一阈值设置";
+            this.Text = "二世代 模式一 阈值设置";
             this.ToolTip1.SetToolTip(this, "设置模式一计算时的阈值，将鼠标放在阈值名称上有\r\n详细说明。此窗口即使关闭已设置数值也会保留，但\r\n重启应用后数值会返回默认值。\r\n默认值可作用与99%的情况（除" +
         "非数据更新）\r\n阈值不支持小数。");
             this.TopMost = true;

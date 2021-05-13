@@ -2002,6 +2002,20 @@ namespace UmaMusumeAPP
                 {
                     return;
                 }
+                /*else
+                {
+                    if (none.Count > 4)
+                    {
+                        if (MessageBox.Show("检测到当前空位大于4！请至少填三位马娘再点补算！点击‘是’将自动填充合适的马娘于空位", "确认信息", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.OK)
+                        {
+                            return;
+                        }
+                    }
+
+                    this.AutoInput(none, cbs);
+                    return;
+
+                }*/
             }
             if (!CheckForm2BeAble() && this.radioMode1.Checked)
             {
@@ -2331,6 +2345,54 @@ namespace UmaMusumeAPP
             {
 
             }
+        }
+
+        private void AutoInput(List<ComboBox> none, List<ComboBox> cbs)
+        {
+            /*foreach (ComboBox n in none)
+            {
+                if (n.Tag != (object)"2A")
+                {
+                    if (n.Tag == (object)"2B" || n.Tag == (object)"2D" || n.Tag == (object)"2E")
+                    {
+                        for (int m = 0; m < cbs.Count; m++)
+                        {
+                            if (cbs[m].Tag != (object)"2A")
+                            {
+                                if ((cbs[m].Tag == (object)"2C" || cbs[m].Tag == (object)"2F" || cbs[m].Tag == (object)"2G"))
+                                {
+                                    if (m - 1 < 0)
+                                    {
+                                        if (cbs[m].SelectedIndex != cbs[m+1].SelectedIndex && cbs[m].SelectedIndex != cbs[m + 2].SelectedIndex)
+                                        {
+                                            n.SelectedIndex = cbs[m].SelectedIndex;
+                                            return;
+                                        }
+                                        else
+                                        {
+
+                                        }
+                                    }
+                                    if (m + 1 > 2)
+                                    {
+                                        if (cbs[m].SelectedIndex != cbs[m - 1].SelectedIndex && cbs[m].SelectedIndex != cbs[m - 2].SelectedIndex)
+                                        {
+                                            n.SelectedIndex = cbs[m].SelectedIndex;
+                                            return;
+                                        }
+                                        else
+                                        {
+
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }*/
+
         }
 
         private void Clear1A_Click(object sender, EventArgs e)

@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\atiaf-lvav9-003.ico</ApplicationIcon>
+    <ApplicationIcon>ajpt8-wsiaj-001.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
@@ -227,6 +227,8 @@
     <None Include="Resources\atiaf-lvav9-003.ico" />
     <None Include="Resources\a369a-lxpgo-002.ico" />
     <None Include="a369a-lxpgo-002.ico" />
+    <Content Include="aci1s-4aitf-001.ico" />
+    <Content Include="ajpt8-wsiaj-001.ico" />
     <Content Include="bin\Debug\UmaCalculatorConctolLibs.dll" />
     <EmbeddedResource Include="UmaCalculatorConctolLibs.dll" />
     <None Include="atiaf-lvav9-003.ico" />

@@ -944,6 +944,7 @@
             this.ImageList1.Images.SetKeyName(27, "胜利奖券.png");
             this.ImageList1.Images.SetKeyName(28, "真机伶.png");
             this.ImageList1.Images.SetKeyName(29, "成田大进.png");
+            this.ImageList1.Images.SetKeyName(30, "醒目飞鹰.png");
             // 
             // BackgroundCalculateWorker2
             // 
