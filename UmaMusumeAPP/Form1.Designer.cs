@@ -945,6 +945,7 @@
             this.ImageList1.Images.SetKeyName(28, "真机伶.png");
             this.ImageList1.Images.SetKeyName(29, "成田大进.png");
             this.ImageList1.Images.SetKeyName(30, "醒目飞鹰.png");
+            this.ImageList1.Images.SetKeyName(31, "成田白仁.png");
             // 
             // BackgroundCalculateWorker2
             // 
