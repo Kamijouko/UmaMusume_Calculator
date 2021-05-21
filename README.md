@@ -1,4 +1,4 @@
-# UmaMusume_Calculator 马娘相性计算器 v0.9.5.0
+# UmaMusume_Calculator 马娘相性计算器 v0.9.5.2
 
 Currently only Chinese version. \(_w_)/
 
